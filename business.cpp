@@ -7,10 +7,49 @@
 
 using namespace std;
 
+void buildMovies(BinTree ComedyTree, BinTree DramaTree, BinTree ClassicTree) {
+    char type, action, movieType;
+    NodeData* ptr;
+    bool flag;
 
-void buildMovies()
-{
+    ifstream in("data4movies.txt");
+    if (!in){
+        cout << "File could not be opened." << endl;
+        return 1;
+    }
+    //factory later....... for now this is fine..
+    while(!in.eof()){
+        type = in.get();
 
+        if(type == 'F'){
+            Comedy ComedyNode;
+            ptr = ComedyNode.makeNode(in);
+            flag = ComedyTree.insert(ptr);
+            if(!flag)
+                delete ptr;
+        }
+        else if(type == 'D'){
+            Drama DramaNode;
+            ptr = DramaNode.makeNode(in);
+            flag = DramaTree.insert(ptr);
+            if(!flag)
+                delete ptr;
+        }
+        else if(type == 'C'){
+            Classic ClassicNode;
+            ptr = ClassicNode.makeNode(in);
+            flag = ClassicTree.insert(ptr);
+            if(!flag)
+                delete ptr;
+        }
+        else if(type == 'Z'){
+            cout << "invalid movie entry" << endl;
+            in.ignore(100, '\n');
+        }
+    }
+
+    cout << endl;
+    in.close();
 }
 
 void buildCustomers(Hashtable &table) //we need to take in/return a hashtable object/pointer??
@@ -49,6 +88,10 @@ void processTrans()
 
 int main() //main driver function 
 {
+    BinTree ComedyTree;
+    BinTree DramaTree;
+    BinTree ClassicTree;
+    void buildMovies(BinTree ComedyTree, BinTree DramaTree, BinTree ClassicTree);
     //comment for now
     //Hashtable hTable1;
     //buildCustomers(hTable1);
