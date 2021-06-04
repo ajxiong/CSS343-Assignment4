@@ -10,7 +10,7 @@ using namespace std;
 void buildMovies(BinTree ComedyTree, BinTree DramaTree, BinTree ClassicTree) {
     char type, action, movieType;
     NodeData* ptr;
-    bool flag;
+    bool flagIn;
 
     ifstream in("data4movies.txt");
     if (!in){
@@ -24,22 +24,22 @@ void buildMovies(BinTree ComedyTree, BinTree DramaTree, BinTree ClassicTree) {
         if(type == 'F'){
             Comedy ComedyNode;
             ptr = ComedyNode.makeNode(in);
-            flag = ComedyTree.insert(ptr);
-            if(!flag)
+            flagIn = ComedyTree.insert(ptr);
+            if(!flagIn)
                 delete ptr;
         }
         else if(type == 'D'){
             Drama DramaNode;
             ptr = DramaNode.makeNode(in);
-            flag = DramaTree.insert(ptr);
-            if(!flag)
+            flagIn = DramaTree.insert(ptr);
+            if(!flagIn)
                 delete ptr;
         }
         else if(type == 'C'){
             Classic ClassicNode;
             ptr = ClassicNode.makeNode(in);
-            flag = ClassicTree.insert(ptr);
-            if(!flag)
+            flagIn = ClassicTree.insert(ptr);
+            if(!flagIn)
                 delete ptr;
         }
         else if(type == 'Z'){
