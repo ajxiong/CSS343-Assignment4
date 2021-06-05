@@ -14,7 +14,7 @@ class Transaction
     public:
         Transaction();
         ~Transaction();
-        virtual void display(BinTree&, BinTree&, BinTree&, int, string, char, CustomerHash&) { }
+        virtual void display(BinTree&, BinTree&, BinTree&, int, string, char, HashTable&) { }
 };
 
 #endif
