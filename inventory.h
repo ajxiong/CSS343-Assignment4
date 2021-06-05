@@ -12,7 +12,7 @@ class Inventory : public Transaction
     public:
         Inventory();
         ~Inventory();
-        void display(BinTree&, BinTree&, BinTree&, int, string, char, HashTable&);
+        void display(BinTree&, BinTree&, BinTree&, int, string, char, Hashtable&);
 };
 
 #endif
