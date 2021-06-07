@@ -1,7 +1,12 @@
+
 #include "movie.h"
 
-Movie::Movie() {
-    year = 0;
+// ------------------------------------constructor-----------------------------------------------
+// Description: sets year, director and title to default
+// -------------------------------------------------------------------------------------------------------------
+Movie::Movie()
+{
+    year = "";
     director = "";
     title = "";
     stock = 0;
@@ -19,7 +24,7 @@ string Movie::getDirector() const {
     return director;
 }
 
-int Movie::getYear() const {
+string Movie::getYear() const {
     return year;
 }
 
@@ -54,9 +59,36 @@ bool Movie::setDirector(string directorStr) {
     }
 }
 
-bool Movie::setYear(int yearInt) {
-    year = yearInt;
-    if (year <= 0) {
+bool Movie::setYear(string yearStr) {
+    year = yearStr;
+    if (year.empty()) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+bool Movie::setMonth(string monthStr) {
+    month = monthStr;
+    if (year.empty()) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+bool Movie::setFirstName(string firstStr) {
+    first = firstStr;
+    if (first.empty()) {
+        return false;
+    } else {
+        return true;
+    }
+}
+
+bool Movie::setLastName(string lastStr) {
+    last = lastStr;
+    if (last.empty()) {
         return false;
     } else {
         return true;

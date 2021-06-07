@@ -7,11 +7,13 @@
 
 using namespace std;
 
-class Drama : public Movie {
+class Drama : public Movie
+{
     public:
-    Drama();
-    ~Drama();
-    NodeData* makeNode(istream&);
+        Drama();
+        ~Drama();
+        NodeData* makeNode();
+        string sortingAttribute() const;
 };
 
 #endif

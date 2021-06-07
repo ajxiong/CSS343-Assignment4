@@ -4,18 +4,16 @@
 #include <string>
 #include "movie.h"
 #include "nodedata.h"
-
 using namespace std;
 
-class Comedy : public Movie {
+class Comedy : public Movie
+{
     public:
         Comedy();
         ~Comedy();
-        NodeData* makeNode(istream&);
 
-        bool operator==(const Comedy&) const;
-        bool operator!=(const Comedy&) const;
-        bool operator>(const Comedy&) const;
-        bool operator<(const Comedy&) const;
+        NodeData* makeNode();
+        string sortingAttribute() const;
 };
+
 #endif

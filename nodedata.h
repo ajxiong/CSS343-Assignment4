@@ -3,25 +3,24 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include "movie.h"
 using namespace std;
 
 class NodeData {
     friend ostream & operator<<(ostream &, const NodeData &);
 
     private:
-        string data;
+        Movie data;
         int nodeStock;
 
     public:
         NodeData();
         ~NodeData();
-        NodeData(const string &);
-        NodeData(const string&, int);
+        NodeData(const Movie &);
+        NodeData(const Movie&, int);
         NodeData(const NodeData &);
         NodeData& operator=(const NodeData &);
 
-
-        bool setData(istream&);
         int getStock();
         void setStock(int);
 

@@ -261,7 +261,7 @@ void BinTree::inorderHelper(Node* current) const{
     if (current != nullptr)  // traverse and print data
     {
         inorderHelper(current->left);
-        cout << *current->data << " ";
+        cout << *current->data << "";
         inorderHelper(current->right);
     }
 }

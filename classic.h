@@ -7,10 +7,14 @@
 
 using namespace std;
 
-class Classic : public Movie {
-    public :
+class Classic : public Movie
+{
+    public:
         Classic();
         ~Classic();
-        NodeData* makeNode(istream&);
+
+        NodeData* makeNode();
+        string sortingAttribute() const;
 };
+
 #endif

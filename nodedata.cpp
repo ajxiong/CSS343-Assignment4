@@ -2,11 +2,10 @@
 
 NodeData::NodeData()
 {
-    data = "";
     nodeStock = 0;
 }
 
-NodeData::NodeData(const string& string, int s) {
+NodeData::NodeData(const Movie& string, int s) {
     data = string;
     nodeStock = s;
 }
@@ -16,7 +15,7 @@ NodeData::NodeData(const NodeData& nd2) {
     nodeStock = nd2.nodeStock;
 }
 
-NodeData::NodeData(const string& string) {
+NodeData::NodeData(const Movie& string) {
     data = string;
     nodeStock = 0;
 }
@@ -40,35 +39,30 @@ NodeData& NodeData::operator=(const NodeData& nd2) {
 }
 
 bool NodeData::operator==(const NodeData& nd2) const {
-	return data == nd2.data;
+	return (this->data).sortingAttribute() == nd2.data.sortingAttribute();
 }
 
 bool NodeData::operator!=(const NodeData& nd2) const {
-	return data != nd2.data;
+	return (this->data).sortingAttribute() != nd2.data.sortingAttribute();
 }
 
 bool NodeData::operator<(const NodeData& nd2) const {
-	return data < nd2.data;
+	return (this->data).sortingAttribute() < nd2.data.sortingAttribute();
 }
 
 bool NodeData::operator>(const NodeData& nd2) const {
-	return data > nd2.data;
+	return (this->data).sortingAttribute() > nd2.data.sortingAttribute();
 }
 
 bool NodeData::operator<=(const NodeData& nd2) const {
-	return data <= nd2.data;
+	return (this->data).sortingAttribute() <= nd2.data.sortingAttribute();
 }
 
 bool NodeData::operator>=(const NodeData& nd2) const {
-	return data >= nd2.data;
-}
-
-bool NodeData::setData(istream& infile) {
-	getline(infile, data);
-	return !infile.eof();
+	return (this->data).sortingAttribute() >= nd2.data.sortingAttribute();
 }
 
 ostream& operator<<(ostream& output, const NodeData& nd2) {
-	output << nd2.data << " - In Stock : " << nd2.nodeStock;
+	output << nd2.data << " - In Stock : " << nd2.nodeStock << endl;
 	return output;
 }

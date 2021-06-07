@@ -1,12 +1,13 @@
-#ifndef movie_h
-#define movie_h
-
-#include <string>
+#ifndef MOVIE_H
+#define MOVIE_H
 #include <iostream>
+#include <string>
 #include "nodedata.h"
+using namespace std;
 
-class Movie {
-    public:
+class Movie
+{
+public:
         //Constructor
         Movie();
 
@@ -26,18 +27,27 @@ class Movie {
         int getStock() const;
         string getTitle() const;
         string getDirector() const;
-        int getYear() const;
+        string getYear() const;
 
         //Setter
         bool setStock(int);
         bool setTitle(string);
         bool setDirector(string);
-        bool setYear(int);
+        bool setYear(string);
+        bool setMonth(string);
+        bool setFirstName(string);
+        bool setLastName(string);
+
+        virtual NodeData* makeNode() { };
+        virtual string sortingAttribute() const { };
 
     protected:
         string title;
         string director;
-        int year;
+        string year;
+        string month;
+        string first;
+        string last;
         int stock;
 };
 #endif
