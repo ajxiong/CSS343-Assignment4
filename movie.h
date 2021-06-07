@@ -14,15 +14,6 @@ public:
         //Destructor
         ~Movie();
 
-        //Displays
-        //void display();
-
-        //Overriding operators
-        // bool operator==(const Movie &) const;
-        // bool operator!=(const Movie &) const;
-        // bool operator<(const Movie &) const;
-        // bool operator>(const Movie &) const;
-
         //Getter
         int getStock() const;
         string getTitle() const;
