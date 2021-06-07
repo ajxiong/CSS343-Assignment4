@@ -7,7 +7,7 @@ Business::Business(){}
 
 Business::~Business(){}
 
-void Business::buildMovies(BinTree BSTree)
+void Business::buildMovies(BinTree movieTree)
 {
     char type;
     NodeData* ptr;
@@ -24,12 +24,12 @@ void Business::buildMovies(BinTree BSTree)
 
         if (type = "F" || type == 'D' ||  type == 'C') {
             ptr = MovieFactory::createMovie(type, movieInfile)->makeNode();
-            flagIn = BSTree.insert(ptr);
+            flagIn = movieTree.insert(ptr);
             if(!flagIn)
                 delete ptr;
         }
         else {
-            cout << "invalid movie entry" << endl;
+            cout << "Movie type is invalid" << endl;
             movieInfile.ignore(100, '\n');
         }
     }
