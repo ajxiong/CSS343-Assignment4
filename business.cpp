@@ -73,10 +73,8 @@ void processTrans()
 
 int main() //main driver function 
 {
-    BinTree ComedyTree;
-    BinTree DramaTree;
-    BinTree ClassicTree;
-    buildMovies(BinTree ComedyTree, BinTree DramaTree, BinTree ClassicTree);
+    BinTree BSTree;
+    buildMovies(BSTree);
     //comment for now
     //Hashtable hTable1;
     //buildCustomers(hTable1);
