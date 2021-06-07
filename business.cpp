@@ -1,13 +1,14 @@
-#include "transaction.h"
-#include "transactionfactorymethod.h"
-#include "hashtable.h"
-#include <vector>
-#include <fstream>
+#include "business.h"
 #include <iostream>
-
 using namespace std;
 
-void buildMovies(BinTree BSTree) {
+
+Business::Business(){}
+
+Business::~Business(){}
+
+void Business::buildMovies(BinTree BSTree)
+{
     char type;
     NodeData* ptr;
     bool flagIn;
@@ -37,7 +38,7 @@ void buildMovies(BinTree BSTree) {
     movieInfile.close();
 }
 
-void buildCustomers(Hashtable &table) //we need to take in/return a hashtable object/pointer??
+void Business::buildCustomers() //FINISHED
 {
     ifstream customerInfile("data4customers.txt");
 	if (!customerInfile) 
@@ -48,6 +49,7 @@ void buildCustomers(Hashtable &table) //we need to take in/return a hashtable ob
     int custID;
     string firstName, lastName;
     vector<Customer*> customerData;
+    //adding customer data to our Customer vector
     while(!customerInfile.eof())
     {
         customerInfile >> custID;
@@ -60,24 +62,77 @@ void buildCustomers(Hashtable &table) //we need to take in/return a hashtable ob
         customerInfile.peek();
     }
 
-    //insert customer data by hash method
+    //take Customer vector and insert customer data by hash method
     table.setSize(customerData.size() * 2); //should be 24
-    table.insertByHash(customerData[0]->getID());
+    for(int i = 0; i < customerData.size(); i++)
+    {
+        table.insertByHash(*customerData[i]);
+        delete customerData[i];
+    }
+    table.display();
+    //test find function
+    Customer* custPtr = nullptr;
+    bool found = table.find(5000, custPtr);
+    
     customerInfile.close();
 }
 
-void processTrans()
+void Business::processTrans() //NOT FINISHED
 {
-    
-}
+    ifstream commandInFile("data4commands.txt");
+    if(!commandInFile)
+    {
+        cout << "command file could not be opened" << endl;
+        return;
+    }
+    TransactionFactoryMethod createCommand;
+    Transaction* transPtr;
+    char command, dvd, genre;
+    int custID, year;
+    string movieName;
+    /*while(!commandInFile.eof())
+    {
+        commandInFile.get(command);
 
-int main() //main driver function 
-{
-    BinTree BSTree;
-    buildMovies(BSTree);
-    //comment for now
-    //Hashtable hTable1;
-    //buildCustomers(hTable1);
-    cout << "done" << endl;
-    return 0;
+        if(command == 'I')
+        {
+            transPtr = createCommand.createTransaction(command);
+            transPtr->doTrans();
+            commandInFile.ignore(10, '\n');
+            continue;
+        }
+        commandInFile.get();
+        commandInFile >> custID;
+
+        if(command == 'H')
+        {
+            transPtr = createCommand.createTransaction(command);
+            transPtr->doTrans();
+            commandInFile.ignore(10, '\n');
+            continue;
+        }
+
+        commandInFile.get();
+        commandInFile.get(dvd);
+
+        if(dvd != 'D')
+        {
+            commandInFile.ignore(100, '\n');
+            continue;
+        }
+
+        commandInFile.get();
+        commandInFile.get(genre);
+        commandInFile.get();
+
+        switch(genre)
+        {
+            case 'F' : getline(commandInFile, movieName, ',');
+            commandInFile.get();
+            getline(commandInFile, year, '\n');
+            year.erase(4);
+            
+            break;
+        }
+    }*/
 }
