@@ -15,10 +15,11 @@ class Business
 {
     private:
     Hashtable table;
+    BinTree movieTree;
     public:
     Business();
     ~Business();
-    void buildMovies(BinTree BSTree);
+    void buildMovies(movieTree);
     void buildCustomers();
     void processTrans();
 };
