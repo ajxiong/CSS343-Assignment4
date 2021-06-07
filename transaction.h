@@ -5,7 +5,7 @@
 #include <string>
 #include "bintree.h"
 #include "customer.h"
-#include "customerhash.h"
+#include "hashtable.h"
 using namespace std;
 
 class Transaction
@@ -14,7 +14,7 @@ class Transaction
     public:
         Transaction();
         ~Transaction();
-        virtual void perform(BinTree&, int, string, char, CustomerHash&) { cout << "perform" << endl;}
+        virtual void perform(BinTree&, int, string, char, Hashtable&) { cout << "perform" << endl;}
 };
 
 #endif
