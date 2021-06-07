@@ -7,7 +7,7 @@
 
 using namespace std;
 
-void buildMovies(BinTree ComedyTree, BinTree DramaTree, BinTree ClassicTree) {
+void buildMovies(BinTree BSTree) {
     char type;
     NodeData* ptr;
     bool flagIn;
@@ -21,28 +21,13 @@ void buildMovies(BinTree ComedyTree, BinTree DramaTree, BinTree ClassicTree) {
     while(!movieInfile.eof()){
         type = movieInfile.get();
 
-        if(type == 'F'){
-            Comedy ComedyNode;
-            ptr = ComedyNode.makeNode(movieInfile);
-            flagIn = ComedyTree.insert(ptr);
+        if (type = "F" || type == 'D' ||  type == 'C') {
+            ptr = MovieFactory::createMovie(type, movieInfile)->makeNode();
+            flagIn = BSTree.insert(ptr);
             if(!flagIn)
                 delete ptr;
         }
-        else if(type == 'D'){
-            Drama DramaNode;
-            ptr = DramaNode.makeNode(movieInfile);
-            flagIn = DramaTree.insert(ptr);
-            if(!flagIn)
-                delete ptr;
-        }
-        else if(type == 'C'){
-            Classic ClassicNode;
-            ptr = ClassicNode.makeNode(movieInfile);
-            flagIn = ClassicTree.insert(ptr);
-            if(!flagIn)
-                delete ptr;
-        }
-        else if(type == 'Z'){
+        else {
             cout << "invalid movie entry" << endl;
             movieInfile.ignore(100, '\n');
         }
