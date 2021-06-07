@@ -13,9 +13,9 @@ Inventory::~Inventory() {}
 // ------------------------------------perform-----------------------------------------------
 // Description: displays all movies and their stocks
 // -------------------------------------------------------------------------------------------------------------
-void Inventory::perform(BinTree& BSTree, int a, string b, char c, Hashtable& table)
+void Inventory::perform(BinTree& movieTree)
 {
     cout << "----------INVENTORY----------" << endl;
-    cout << BSTree << endl;
+    cout << movieTree << endl;
 
 }
