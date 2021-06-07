@@ -29,8 +29,8 @@ public:
         bool setFirstName(string);
         bool setLastName(string);
 
-        virtual NodeData* makeNode() { };
-        virtual string sortingAttribute() const { };
+        //virtual NodeData* makeNode() { };
+        //virtual string sortingAttribute() const { };
 
     protected:
         string title;
