@@ -15,7 +15,7 @@ void History::display(BinTree& comedyTree, BinTree& dramaTree, BinTree& classicT
         cout << "--------------------------------------" << endl;
         cout << endl << "Customer: " << customer->getFirstName() << " " << customer->getLastName() << " - "
             << "ID: " <<customer->getID() << endl << endl;
-        cout << "Transaction History: " << endl;
+        cout << endl << "Transaction History: " << endl;
         customer->display();
         cout << endl;
     }
