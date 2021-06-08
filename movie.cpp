@@ -32,65 +32,26 @@ int Movie::getStock() const {
     return stock;
 }
 
-bool Movie::setStock(int stockNum) {
+void Movie::setStock(int stockNum) {
     stock = stockNum;
-    if (stock < 0) {
-        return false;
-    } else {
-        return true;
-    }
 }
 
-bool Movie::setTitle(string titleStr) {
+void Movie::setTitle(string titleStr) {
     title = titleStr;
-    if (title.empty()) {
-        return false;
-    } else {
-        return true;
-    }
 }
 
-bool Movie::setDirector(string directorStr) {
+void Movie::setDirector(string directorStr) {
     director = directorStr;
-    if (director.empty()) {
-        return false;
-    } else {
-        return true;
-    }
 }
 
-bool Movie::setYear(string yearStr) {
+void Movie::setYear(string yearStr) {
     year = yearStr;
-    if (year.empty()) {
-        return false;
-    } else {
-        return true;
-    }
 }
 
-bool Movie::setMonth(string monthStr) {
-    month = monthStr;
-    if (year.empty()) {
-        return false;
-    } else {
-        return true;
-    }
+void Movie::setReleaseDate(string releaseDateStr) {
+    releaseDate = releaseDateStr;
 }
 
-bool Movie::setFirstName(string firstStr) {
-    first = firstStr;
-    if (first.empty()) {
-        return false;
-    } else {
-        return true;
-    }
-}
-
-bool Movie::setLastName(string lastStr) {
-    last = lastStr;
-    if (last.empty()) {
-        return false;
-    } else {
-        return true;
-    }
+void Movie::setMajorActor(string majorActorStr) {
+    majorActor = majorActorStr;
 }

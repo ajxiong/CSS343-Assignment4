@@ -6,8 +6,6 @@
 #include "movie.h"
 using namespace std;
 
-class Movie;
-
 class NodeData {
     friend ostream & operator<<(ostream &, const NodeData &);
 

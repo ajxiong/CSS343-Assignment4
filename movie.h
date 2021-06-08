@@ -5,8 +5,6 @@
 #include "nodedata.h"
 using namespace std;
 
-class NodeData;
-
 class Movie
 {
 public:
@@ -32,13 +30,13 @@ public:
         string getYear() const;
 
         //Setter
-        bool setStock(int);
-        bool setTitle(string);
-        bool setDirector(string);
-        bool setYear(string);
-        bool setMonth(string);
-        bool setFirstName(string);
-        bool setLastName(string);
+        void setStock(int);
+        void setTitle(string);
+        void setDirector(string);
+        void setYear(string);
+        void setReleaseDate(string);
+        void setMajorActor(string);
+
 
         //virtual NodeData* makeNode();
 
@@ -46,9 +44,8 @@ public:
         string title;
         string director;
         string year;
-        string month;
-        string first;
-        string last;
+        string releaseDate;
+        string majorActor;
         int stock;
 };
 #endif

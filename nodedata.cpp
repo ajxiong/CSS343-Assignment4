@@ -63,6 +63,6 @@ bool NodeData::operator>=(const NodeData& nd2) const {
 }
 
 ostream& operator<<(ostream& output, const NodeData& nd2) {
-	output << nd2.data << " - In Stock : " << nd2.nodeStock << endl;
+	output << nd2.data << " ___ " << nd2.nodeStock << " movies left." << endl;
 	return output;
 }
