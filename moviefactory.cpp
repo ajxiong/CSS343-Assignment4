@@ -56,7 +56,7 @@ Drama* MovieFactory::createDrama(ifstream& infile) {
 
 Classic* MovieFactory::createClassic(ifstream& infile) {
         int stock;
-        string director, title, month, year, first, last, temp;
+        string director, title, month, year, first, last;
 
         infile.get();
         infile.get();
@@ -77,11 +77,8 @@ Classic* MovieFactory::createClassic(ifstream& infile) {
         Classic* classic= new Classic();
         classic->setTitle(title);
         classic->setDirector(director);
-        classic->setYear(year);
+        classic->setReleaseDate(year + ' ' + month);
+        classic->setMajorActor(first + ' ' + last);
         classic->setStock(stock);
-        classic->setFirstName(first);
-        classic->setLastName(last);
-        classic->setMonth(month);
-
         return classic;
 }
