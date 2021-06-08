@@ -12,8 +12,9 @@ void History::display(BinTree& comedyTree, BinTree& dramaTree, BinTree& classicT
     bool customerIn = table.find(custID, customer);
 
     if (customerIn) {
-        cout << endl << "------- Customer: " << customer->getFirstName() << " " << customer->getLastName() << " - "
-            << customer->getID() << endl;
+        cout << "--------------------------------------" << endl;
+        cout << endl << "Customer: " << customer->getFirstName() << " " << customer->getLastName() << " - "
+            << "ID: " <<customer->getID() << endl << endl;
         cout << "Transaction History: " << endl;
         customer->display();
         cout << endl;
