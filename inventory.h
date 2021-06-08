@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include "transaction.h"
+
 using namespace std;
 
 class Inventory : public Transaction
@@ -11,7 +12,7 @@ class Inventory : public Transaction
     public:
         Inventory();
         ~Inventory();
-        void display(BinTree&, BinTree&, BinTree&, int, string, char, Hashtable&);
+        void display(BinTree&, BinTree&, BinTree&, CustomerHash&, char, int, string);
 };
 
 #endif

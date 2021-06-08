@@ -6,5 +6,5 @@ Comedy::Comedy() { }
 Comedy::~Comedy() { }
 
 NodeData* Comedy::makeNode() {
-    return new NodeData(title + " " + this->year, this->stock);
+    return new NodeData(title + " " + this->year, this->stock);;
 }

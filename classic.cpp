@@ -8,5 +8,5 @@ Classic::~Classic() { }
 
 
 NodeData* Classic::makeNode() {
-    return new NodeData(year + " " + this->month + " " + this->first + " " + this->last, this->stock);;
+    return new NodeData(this->releaseDate + " " + this->majorActor, this->stock);;
 }
