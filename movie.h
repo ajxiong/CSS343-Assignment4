@@ -30,13 +30,13 @@ public:
         int getStock() const;
 
         //Setter
-        bool setTitle(string);
-        bool setDirector(string);
-        bool setYear(string);
-        bool setMonth(string);
-        bool setFirstName(string);
-        bool setLastName(string);
-        bool setStock(int);
+        void setTitle(string);
+        void setDirector(string);
+        void setYear(string);
+        void setMonth(string);
+        void setFirstName(string);
+        void setLastName(string);
+        void setStock(int);
         
         //virtual NodeData* makeNode();
 
@@ -45,8 +45,8 @@ public:
         string director;
         string year;
         string month;
-        string first;
-        string last;
+        string firstName;
+        string lastName;
         int stock;
 };
 #endif
