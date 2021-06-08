@@ -7,7 +7,7 @@ Business::Business(){}
 
 Business::~Business(){}
 
-void Business::buildMovies()//FINISHED
+void Business::buildMovies()
 {
     ifstream movieInfile("data4movies.txt");
     if (!movieInfile) {
@@ -47,18 +47,12 @@ void Business::buildMovies()//FINISHED
             movieInfile.ignore(100, '\n');
         }
     }
-    /*cout << "comedy tree" << endl;
-    cout << comedyTree << endl;
-    cout << "\ndrama tree" << endl;
-    cout << dramaTree << endl;
-    cout << "\nclassic tree" << endl;
-    cout << classicTree << endl;*/
     cout << endl << "There are " << invalidCount << " invalid codes in the data file" << endl;
     cout << endl;
     movieInfile.close();
 }
 
-void Business::buildCustomers() //FINISHED
+void Business::buildCustomers()
 {
     ifstream customerInfile("data4customers.txt");
 	if (!customerInfile) 
@@ -89,10 +83,7 @@ void Business::buildCustomers() //FINISHED
         table.insertByHash(*customerData[i]);
         delete customerData[i];
     }
-    table.display();
-    //test find function
-    Customer* custPtr = nullptr;
-    bool found = table.find(5000, custPtr);
+    //table.display();
     
     customerInfile.close();
 }
