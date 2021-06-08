@@ -46,7 +46,7 @@ class Customer
     // --------------------------------------------------------------------------------------------------- 
     Customer(string first, string last, int custID); //end of Customer
     
-    // ------------------------------------~Business--------------------------------------------------------
+    // ------------------------------------~Customer--------------------------------------------------------
     // Pre-conditions: none
     // Post-conditions: none
     // Description: default destructor included as a pre-cautionary measure
