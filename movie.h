@@ -5,8 +5,16 @@
 #include "nodedata.h"
 using namespace std;
 
-class Movie
-{
+class Movie {
+        
+protected:
+        string title;
+        string director;
+        string year;
+        string month;
+        string firstName;
+        string lastName;
+        int stock;
 public:
         //Constructor
         Movie();
@@ -39,14 +47,5 @@ public:
         void setStock(int);
         
         //virtual NodeData* makeNode();
-
-    protected:
-        string title;
-        string director;
-        string year;
-        string month;
-        string firstName;
-        string lastName;
-        int stock;
 };
 #endif
