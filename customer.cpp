@@ -24,6 +24,9 @@ void Customer::setCustomer()
 
 void Customer::display()
 {
+    if (movieHistory.size() == 0) {
+        cout << "[No transactions]" << endl;
+    }
     for(int i = 0; i < movieHistory.size(); i++)
         cout << movieHistory[i] << endl;
 }
