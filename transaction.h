@@ -5,7 +5,7 @@
 #include <string>
 #include "bintree.h"
 #include "customer.h"
-#include "customerhash.h"
+#include "hashtable.h"
 using namespace std;
 
 class Transaction
