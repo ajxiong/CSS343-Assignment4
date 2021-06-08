@@ -88,7 +88,7 @@ void Business::buildCustomers()
     customerInfile.close();
 }
 
-void Business::processTrans() //NOT FINISHED
+void Business::processTrans()
 {
     ifstream commandInFile("data4commands.txt");
     if(!commandInFile)
