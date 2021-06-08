@@ -19,7 +19,8 @@ Hashtable::Hashtable(const int &size)
 
 Hashtable::~Hashtable()
 {
-
+    delete [] hashTable;
+    hashTable = nullptr;
 }
 
 bool Hashtable::find(const int &custID, Customer* &custPtr) const
@@ -43,7 +44,7 @@ bool Hashtable::find(const int &custID, Customer* &custPtr) const
             int hashPosition2 = (hashPosition + (counter * (r - (custID % r)))) % hashTableSize;
             if(hashTable[hashPosition2].getID() == custID)
             {
-                cout << "Customer ID: " << custID << " found:\nFirst name: " << hashTable[hashPosition2].getFirstName() <<
+                cout << "Customer ID: " << custID << " found\nFirst name: " << hashTable[hashPosition2].getFirstName() <<
                 "\nLast name: " << hashTable[hashPosition2].getLastName() << endl;
                 custPtr = &hashTable[hashPosition2];
                 found = true;
@@ -89,8 +90,14 @@ int Hashtable::findPrime() const
 
 void Hashtable::insertByHash(const Customer &customerData)
 {
+    //cout << customerData.getID() << endl;
+    //cout << customerData.getFirstName() << " " << customerData.getLastName() << endl;
     int hashPosition;
+    //we are going to be using double hash probing
+    //hashTable[21].setID(69);
+    //cout << hashTable[21].getID() << endl;
     hashPosition = customerData.getID() % hashTableSize; //this should be 21
+    //we need to think of the case if the hashPosition is NOT in the array element?
     if(hashTable[hashPosition].getID() == 0)
         hashTable[hashPosition] = customerData;
     else
@@ -99,8 +106,10 @@ void Hashtable::insertByHash(const Customer &customerData)
         //find prime number smaller than current hash table size
         int r = findPrime();
         bool positionNotFound = true;
+        //cout << r << endl;
         while(positionNotFound)
         {
+            //is it a wise choice to += hashPosition? maybe make another hashPosition variable?
             int hashPosition2 = (hashPosition + (counter * (r - (customerData.getID() % r)))) % hashTableSize; //should be 23 here
             if(hashTable[hashPosition2].getID() == 0)
             {
@@ -128,12 +137,12 @@ void Hashtable::setSize(const int &size)
     hashTableSize = size; //assign size to our hash table size. should be 24!
 }
 
-int Hashtable::getSize()
+int Hashtable::getSize() const
 {
     return hashTableSize;
 }
 
-void Hashtable::display()
+void Hashtable::display() const
 {
     for(int i = 0; i < hashTableSize; i++)
     {

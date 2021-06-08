@@ -24,12 +24,17 @@ void Customer::setCustomer()
 
 void Customer::display()
 {
-
+    for(int i = 0; i < movieHistory.size(); i++)
+        cout << movieHistory[i] << endl;
 }
 
-void Customer::addTrans()
+void Customer::addTrans(string command, string movieTitle)
 {
-    
+    movieHistory.push_back(command + movieTitle);
+    if(command == "Returned")
+        movieDue.pop_back();
+    else if(command == "Borrowed")
+        movieDue.push_back(movieTitle);
 }
 
 void Customer::setID(const int &ID)

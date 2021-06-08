@@ -1,6 +1,5 @@
 #include "business.h"
 #include <iostream>
-#include "moviefactory.h"
 using namespace std;
 
 
@@ -8,43 +7,49 @@ Business::Business(){}
 
 Business::~Business(){}
 
-void Business::buildMovies(){
+void Business::buildMovies()//FINISHED
+{
+    char type;
+    NodeData* ptr;
+    bool flagIn;
     ifstream movieInfile("data4movies.txt");
     if (!movieInfile){
-        cout << "Movie files cannot be opened." << endl;
+        cout << "File could not be opened." << endl;
         return;
     }
-	
-    NodeData* movieNode;
-    char type;
-    bool ifInsert;
-	
+    //factory later....... for now this is fine..
     while(!movieInfile.eof()){
         type = movieInfile.get();
-        if(type == 'F') {
-            movieNode = MovieFactory::createComedy(movieInfile)->makeNode();
-            ifInsert = comedyTree.insert(movieNode);
-            if(!ifInsert) {
-                delete node;
-	    }
+
+        if(type == 'F'){
+            ptr = MovieFactory::createComedy(movieInfile)->makeNode();
+            flagIn = comedyTree.insert(ptr);
+            if(!flagIn)
+                delete ptr;
         }
-        else if(type == 'D') {
-            movieNode = MovieFactory::createDrama(movieInfile)->makeNode();
-            ifInsert = dramaTree.insert(movieNode);
-            if(!ifInsert)
-                delete movieNode;
+        else if(type == 'D'){
+            ptr = MovieFactory::createDrama(movieInfile)->makeNode();
+            flagIn = dramaTree.insert(ptr);
+            if(!flagIn)
+                delete ptr;
         }
-        else if(type == 'C') {
-            movieNode = MovieFactory::createClassic(movieInfile)->makeNode();
-            ifInsert = classicTree.insert(movieNode);
-            if(!ifInsert)
-                delete movieNode;
+        else if(type == 'C'){
+            ptr = MovieFactory::createClassic(movieInfile)->makeNode();
+            flagIn = classicTree.insert(ptr);
+            if(!flagIn)
+                delete ptr;
         }
         else {
             cout << "Movie type is invalid" << endl;
             movieInfile.ignore(100, '\n');
         }
-
+    }
+    /*cout << "comedy tree" << endl;
+    cout << comedyTree << endl;
+    cout << "\ndrama tree" << endl;
+    cout << dramaTree << endl;
+    cout << "\nclassic tree" << endl;
+    cout << classicTree << endl;*/
     cout << endl;
     movieInfile.close();
 }
@@ -99,16 +104,18 @@ void Business::processTrans() //NOT FINISHED
     TransactionFactoryMethod createCommand;
     Transaction* transPtr;
     char command, dvd, genre;
-    int custID, year;
-    string movieName;
-    /*while(!commandInFile.eof())
+    int custID;
+    string movieName, fullTitle, temp, temp2, year, month;
+    while(!commandInFile.eof())
     {
         commandInFile.get(command);
 
         if(command == 'I')
         {
+            //CREATE COMMAND FROM COMMAND FACTORY METHOD HERE!!!
             transPtr = createCommand.createTransaction(command);
-            transPtr->doTrans();
+            //PERFORMS THAT COMMAND'S TRANSACTION 
+            transPtr->display(comedyTree, classicTree, dramaTree, custID, fullTitle, genre, table);
             commandInFile.ignore(10, '\n');
             continue;
         }
@@ -118,7 +125,7 @@ void Business::processTrans() //NOT FINISHED
         if(command == 'H')
         {
             transPtr = createCommand.createTransaction(command);
-            transPtr->doTrans();
+            transPtr->display(comedyTree, classicTree, dramaTree, custID, fullTitle, genre, table);
             commandInFile.ignore(10, '\n');
             continue;
         }
@@ -138,12 +145,47 @@ void Business::processTrans() //NOT FINISHED
 
         switch(genre)
         {
-            case 'F' : getline(commandInFile, movieName, ',');
+            case 'F' : 
+            getline(commandInFile, movieName, ',');
             commandInFile.get();
             getline(commandInFile, year, '\n');
             year.erase(4);
-            
+            fullTitle = movieName + " " + year;
             break;
+
+            case 'D' : 
+            getline(commandInFile, temp, ' ');
+            getline(commandInFile, temp2, ',');
+            commandInFile.get();
+            getline(commandInFile, movieName, ',');
+            commandInFile.ignore(10, '\n');
+            fullTitle = temp + " " + temp2 + " " + movieName;
+            break;
+
+            case 'C' : 
+            commandInFile >> month;
+            commandInFile.get();
+            commandInFile >> year;
+            commandInFile.get();
+            getline(commandInFile, temp, ' ');
+            getline(commandInFile, temp2, '\n');
+            temp2.erase(temp2.size() - 1);
+            fullTitle = year + " " + month + " " + temp + " " + temp2;
+            break;
+
+            case 'Z' : 
+            commandInFile.ignore(100, '\n');
+            default : break;
         }
-    }*/
+        if(command == 'B')
+        {
+            transPtr = createCommand.createTransaction(command);
+            transPtr->display(comedyTree, classicTree, dramaTree, custID, fullTitle, genre, table);
+        }
+        else if(command == 'R')
+        {
+            transPtr = createCommand.createTransaction(command);
+            transPtr->display(comedyTree, classicTree, dramaTree, custID, fullTitle, genre, table);
+        }
+    }
 }

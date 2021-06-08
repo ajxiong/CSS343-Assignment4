@@ -14,7 +14,7 @@ class Transaction
     public:
         Transaction();
         ~Transaction();
-        virtual void display(BinTree&, BinTree&, BinTree&, Hashtable&, char, int, string) { cout << " Display action: " << endl << endl; }
+        virtual void display(BinTree&, BinTree&, BinTree&, int, string, char, Hashtable&) { cout << "perform" << endl;}
 };
 
 #endif

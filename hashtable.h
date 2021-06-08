@@ -21,8 +21,8 @@ class Hashtable
     bool find(const int &custID, Customer* &custPtr) const;
     void insertByHash(const Customer &customerData);
     void setSize(const int &size);
-    int getSize();
-    void display();
+    int getSize() const;
+    void display() const;
 };
 
 #endif

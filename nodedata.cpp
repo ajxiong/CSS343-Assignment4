@@ -1,10 +1,5 @@
 #include "nodedata.h"
 
-ostream& operator<<(ostream& output, const NodeData& nd2) {
-	output << nd2.data << " ---- " << nd2.nodeStock << " movies left." endl;
-	return output;
-}
-
 NodeData::NodeData()
 {
     nodeStock = 0;
@@ -65,4 +60,9 @@ bool NodeData::operator<=(const NodeData& nd2) const {
 
 bool NodeData::operator>=(const NodeData& nd2) const {
 	return (this->data) >= nd2.data;
+}
+
+ostream& operator<<(ostream& output, const NodeData& nd2) {
+	output << nd2.data << " - In Stock : " << nd2.nodeStock << endl;
+	return output;
 }

@@ -3,7 +3,6 @@
 #include <iostream>
 #include <string>
 #include "transaction.h"
-#include "hashtable.h"
 using namespace std;
 
 class Inventory : public Transaction
@@ -12,7 +11,7 @@ class Inventory : public Transaction
     public:
         Inventory();
         ~Inventory();
-        void display(BinTree&, BinTree&, BinTree&, Hashtable&, char, int, string);
+        void display(BinTree&, BinTree&, BinTree&, int, string, char, Hashtable&);
 };
 
 #endif

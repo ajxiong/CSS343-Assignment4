@@ -15,7 +15,10 @@ class Business
 {
     private:
     Hashtable table;
-    BinTree comedyTree, dramaTree, classicTree;
+    BinTree comedyTree;
+    BinTree classicTree;
+    BinTree dramaTree;
+
     public:
     Business();
     ~Business();

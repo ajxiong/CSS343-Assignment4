@@ -12,7 +12,7 @@ class Customer
     int id;
     string firstName;
     string lastName;
-    vector<string> transactionHistory;
+    vector<string> movieDue;
     vector<string> movieHistory;
 
     public:
@@ -20,8 +20,8 @@ class Customer
     Customer(string first, string last, int custID);
     ~Customer();
     void setCustomer();
-    void display(); //display customer name and id
-    void addTrans(); //add command action customer performed?
+    void display(); //display customer command history 
+    void addTrans(string command, string movieTitle); //add command action customer performed?
     void getHistory(); //display customer history
     void setID(const int &ID);
     int getID() const;

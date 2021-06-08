@@ -7,7 +7,8 @@
 
 using namespace std;
 
-class Drama : public Movie {
+class Drama : public Movie
+{
     public:
         Drama();
         ~Drama();
