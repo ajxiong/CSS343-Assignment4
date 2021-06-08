@@ -13,7 +13,7 @@ Inventory::~Inventory() {}
 // ------------------------------------perform-----------------------------------------------
 // Description: displays all movies and their stocks
 // -------------------------------------------------------------------------------------------------------------
-void Inventory::display(BinTree& comedyTree, BinTree& dramaTree, BinTree& classicTree, CustomerHash& customerTable, char c, int a, string b)
+void Inventory::display(BinTree& comedyTree, BinTree& dramaTree, BinTree& classicTree, Hashtable& table, char a, int b, string c)
 {
     cout << "--------------MOVIES INVENTORY--------------" << endl << endl;
     cout << "COMEDY MOVIES:" << endl << endl;
