@@ -6,7 +6,7 @@ class Return : public Transaction
 {
     private:
     public:
-    void display(BinTree&, BinTree&, BinTree&, int, string, char, Hashtable&);
+    void display(BinTree&, BinTree&, BinTree&, Hashtable&, char,int, string);
 };
 
 #endif
