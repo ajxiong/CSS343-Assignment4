@@ -29,9 +29,6 @@ bool Hashtable::find(const int &custID, Customer* &custPtr) const
     int hashPosition = custID % hashTableSize;
     if(hashTable[hashPosition].getID() == custID)
     {
-        cout << endl << "Customer ID: " << custID << " found\nFirst name: " << hashTable[hashPosition].getFirstName() <<
-        "\nLast name: " << hashTable[hashPosition].getLastName() << endl;
-        cout << endl;
         custPtr = &hashTable[hashPosition];
         found = true;
         return found;
@@ -45,9 +42,6 @@ bool Hashtable::find(const int &custID, Customer* &custPtr) const
             int hashPosition2 = (hashPosition + (counter * (r - (custID % r)))) % hashTableSize;
             if(hashTable[hashPosition2].getID() == custID)
             {
-                cout << "Customer ID: " << custID << " found\nFirst name: " << hashTable[hashPosition2].getFirstName() <<
-                "\nLast name: " << hashTable[hashPosition2].getLastName() << endl;
-                custPtr = &hashTable[hashPosition2];
                 found = true;
                 return found;
             }
