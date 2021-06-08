@@ -19,7 +19,7 @@ void Business::buildMovies(BinTree comedyTree, BinTree dramaTree, BinTree classi
         cout << "File could not be opened." << endl;
         return 1;
     }
-    //factory later....... for now this is fine..
+
     while(!movieInfile.eof()){
         type = movieInfile.get();
 
