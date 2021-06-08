@@ -1,4 +1,6 @@
 #include "history.h"
+#include <iostream>
+#include <string>
 
 History::History(){}
 
