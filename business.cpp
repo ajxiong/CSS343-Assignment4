@@ -42,7 +42,7 @@ void Business::buildMovies()
                 delete movieNode;
         }
         else {
-            cout << "Movie type is invalid" << endl;
+            cout << "Movie code is invalid" << endl;
 	    invalidCount++;
             movieInfile.ignore(100, '\n');
         }
