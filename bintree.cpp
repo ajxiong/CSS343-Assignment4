@@ -1,19 +1,3 @@
-//------------------------------------------bintree.cpp-----------------------------------------
-// Course Section: CSS 343 B
-// Creation Date: 19/04/21
-// Date of Last Modification: 21/04/21
-//-------------------------------------------------------------------------------------------
-// Purpose: This project is to create a binary search tree class
-// called BinTree along with some additional functions (remove function is not required).
-//-------------------------------------------------------------------------------------------
-// Note: Your code should be able to read a data file consisting of many lines (an example file called data2.txt
-// will be given containing lines as shown below) to build binary search trees.
-// Each line consists of many strings and terminates with the string “$$”.
-// Each line will be used to build one tree. The duplicated strings (i.e.,
-// having equal values with existing node data) are discarded, smaller strings go left,
-// and bigger go right. For instance, the internal tree built from the first line of data2.txt should look like in Figure 1.
-//-------------------------------------------------------------------------------------------
-
 #include <string>
 #include <iostream>
 #include "bintree.h"
