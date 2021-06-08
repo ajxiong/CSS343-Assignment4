@@ -8,7 +8,7 @@ class Borrow : public Transaction
     public:
     Borrow();
     ~Borrow();
-    void display(BinTree&, BinTree&, BinTree&, int, string, char, Hashtable&);
+    void display(BinTree&, BinTree&, BinTree&, Hashtable&, char, int, string);
 };
 
 #endif
