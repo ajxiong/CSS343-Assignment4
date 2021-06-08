@@ -9,38 +9,41 @@ Business::~Business(){}
 
 void Business::buildMovies()//FINISHED
 {
-    char type;
-    NodeData* ptr;
-    bool flagIn;
     ifstream movieInfile("data4movies.txt");
-    if (!movieInfile){
+    if (!movieInfile) {
         cout << "File could not be opened." << endl;
         return;
     }
-    //factory later....... for now this is fine..
-    while(!movieInfile.eof()){
+    
+    char type;
+    int invalidCount;
+    NodeData* movieNode;
+    bool ifInsert;
+	
+    while(!movieInfile.eof()) {
         type = movieInfile.get();
 
-        if(type == 'F'){
-            ptr = MovieFactory::createComedy(movieInfile)->makeNode();
-            flagIn = comedyTree.insert(ptr);
-            if(!flagIn)
-                delete ptr;
+        if(type == 'F') {
+            movieNode = MovieFactory::createComedy(movieInfile)->makeNode();
+            ifInsert = comedyTree.insert(movieNode);
+            if(!ifInsert)
+                delete movieNode;
         }
-        else if(type == 'D'){
-            ptr = MovieFactory::createDrama(movieInfile)->makeNode();
-            flagIn = dramaTree.insert(ptr);
-            if(!flagIn)
-                delete ptr;
+        else if(type == 'D') {
+            movieNode = MovieFactory::createDrama(movieInfile)->makeNode();
+            ifInsert = dramaTree.insert(movieNode);
+            if(!ifInsert)
+                delete movieNode;
         }
-        else if(type == 'C'){
-            ptr = MovieFactory::createClassic(movieInfile)->makeNode();
-            flagIn = classicTree.insert(ptr);
-            if(!flagIn)
-                delete ptr;
+        else if(type == 'C') {
+            movieNode = MovieFactory::createClassic(movieInfile)->makeNode();
+            ifInsert = classicTree.insert(movieNode);
+            if(!ifInsert)
+                delete movieNode;
         }
         else {
             cout << "Movie type is invalid" << endl;
+	    invalidCount++;
             movieInfile.ignore(100, '\n');
         }
     }
@@ -50,6 +53,7 @@ void Business::buildMovies()//FINISHED
     cout << dramaTree << endl;
     cout << "\nclassic tree" << endl;
     cout << classicTree << endl;*/
+    cout << endl << "There are " << invalidCount << " invalid codes in the data file" << endl;
     cout << endl;
     movieInfile.close();
 }
@@ -115,7 +119,7 @@ void Business::processTrans() //NOT FINISHED
             //CREATE COMMAND FROM COMMAND FACTORY METHOD HERE!!!
             transPtr = createCommand.createTransaction(command);
             //PERFORMS THAT COMMAND'S TRANSACTION 
-            transPtr->display(comedyTree, classicTree, dramaTree, custID, fullTitle, genre, table);
+            transPtr->display(comedyTree, classicTree, dramaTree, table, genre, custID, fullTitle);
             commandInFile.ignore(10, '\n');
             continue;
         }
@@ -125,7 +129,7 @@ void Business::processTrans() //NOT FINISHED
         if(command == 'H')
         {
             transPtr = createCommand.createTransaction(command);
-            transPtr->display(comedyTree, classicTree, dramaTree, custID, fullTitle, genre, table);
+            transPtr->display(comedyTree, classicTree, dramaTree, table, genre, custID, fullTitle);
             commandInFile.ignore(10, '\n');
             continue;
         }
@@ -180,12 +184,12 @@ void Business::processTrans() //NOT FINISHED
         if(command == 'B')
         {
             transPtr = createCommand.createTransaction(command);
-            transPtr->display(comedyTree, classicTree, dramaTree, custID, fullTitle, genre, table);
+            transPtr->display(comedyTree, classicTree, dramaTree, table, genre, custID, fullTitle);
         }
         else if(command == 'R')
         {
             transPtr = createCommand.createTransaction(command);
-            transPtr->display(comedyTree, classicTree, dramaTree, custID, fullTitle, genre, table);
+            transPtr->display(comedyTree, classicTree, dramaTree, table, genre, custID, fullTitle);
         }
     }
 }
