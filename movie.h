@@ -24,20 +24,20 @@ public:
         // bool operator>(const Movie &) const;
 
         //Getter
-        int getStock() const;
         string getTitle() const;
         string getDirector() const;
         string getYear() const;
+        int getStock() const;
 
         //Setter
-        bool setStock(int);
         bool setTitle(string);
         bool setDirector(string);
         bool setYear(string);
         bool setMonth(string);
         bool setFirstName(string);
         bool setLastName(string);
-
+        bool setStock(int);
+        
         //virtual NodeData* makeNode();
 
     protected:
