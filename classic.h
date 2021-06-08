@@ -7,8 +7,7 @@
 
 using namespace std;
 
-class Classic : public Movie
-{
+class Classic : public Movie {
     public:
         Classic();
         ~Classic();
