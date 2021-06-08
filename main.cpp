@@ -3,14 +3,20 @@
 
 using namespace std;
 
-int main() //main driver function 
+int main() //main driver function
 {
     Business b1;
 
     //comment for now
-    //b1.buildMovies();
-    //b1.buildCustomers();
-    //b1.processTrans();
-    cout << "we are done" << endl;
+    cout << "Read the movie data" << endl;
+    b1.buildMovies();
+
+    cout << "Build Customer Hash Table" << endl;
+    b1.buildCustomers();
+
+    cout << "Process command" << endl;
+    b1.processTrans();
+
+    cout << "We are done" << endl;
     return 0;
 }

@@ -3,7 +3,7 @@
 Borrow::Borrow(){}
 Borrow::~Borrow(){}
 
-void Borrow::display(BinTree& comedyTree, BinTree& classicTree, BinTree& dramaTree, int custID, string name, char genre, Hashtable& table)
+void Borrow::display(BinTree& comedyTree, BinTree& classicTree, BinTree& dramaTree, Hashtable& table, char genre, int custID, string name)
 {
     Customer* customerPtr = nullptr;
     NodeData* moviePtr = nullptr;

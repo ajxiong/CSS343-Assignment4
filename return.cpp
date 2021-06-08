@@ -1,10 +1,10 @@
 #include "return.h"
 
-Return::Return(){}
+Return::Return() {}
 
-Return::~Return(){}
+Return::~Return() {}
 
-void Return::display(BinTree& comedyTree, BinTree& classicTree, BinTree& dramaTree, int custID, string name, char genre, Hashtable& table)
+void Return::display(BinTree& comedyTree, BinTree& classicTree, BinTree& dramaTree, Hashtable& table, char genre, int custID, string name)
 {
     Customer* customerPtr = nullptr;
     NodeData* moviePtr = nullptr;

@@ -29,8 +29,9 @@ bool Hashtable::find(const int &custID, Customer* &custPtr) const
     int hashPosition = custID % hashTableSize;
     if(hashTable[hashPosition].getID() == custID)
     {
-        cout << "Customer ID: " << custID << " found\nFirst name: " << hashTable[hashPosition].getFirstName() <<
+        cout << endl << "Customer ID: " << custID << " found\nFirst name: " << hashTable[hashPosition].getFirstName() <<
         "\nLast name: " << hashTable[hashPosition].getLastName() << endl;
+        cout << endl;
         custPtr = &hashTable[hashPosition];
         found = true;
         return found;
@@ -70,7 +71,7 @@ bool Hashtable::isPrime(const int &num) const
             numIsPrime = false;
             break;
         }
-    }  
+    }
     return numIsPrime;
 }
 
@@ -149,7 +150,7 @@ void Hashtable::display() const
         if(hashTable[i].getID() != 0)
         {
             cout << "hash position " << i << ": ";
-            cout << hashTable[i].getID() << " " << hashTable[i].getFirstName() << 
+            cout << hashTable[i].getID() << " " << hashTable[i].getFirstName() <<
             " " << hashTable[i].getLastName() << endl;
         }
     }

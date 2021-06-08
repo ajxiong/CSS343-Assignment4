@@ -15,7 +15,7 @@ Inventory::~Inventory() {}
 // -------------------------------------------------------------------------------------------------------------
 void Inventory::display(BinTree& comedyTree, BinTree& dramaTree, BinTree& classicTree, Hashtable& table, char a, int b, string c)
 {
-    cout << "--------------MOVIES INVENTORY--------------" << endl << endl;
+    cout << endl << "--------------MOVIES INVENTORY--------------" << endl << endl;
     cout << "COMEDY MOVIES:" << endl << endl;
     cout << comedyTree << endl;
     cout << "DRAMA MOVIES:" << endl << endl;

@@ -14,12 +14,12 @@ void Business::buildMovies()
         cout << "File could not be opened." << endl;
         return;
     }
-    
+
     char type;
     int invalidCount;
     NodeData* movieNode;
     bool ifInsert;
-	
+
     while(!movieInfile.eof()) {
         type = movieInfile.get();
 
@@ -55,7 +55,7 @@ void Business::buildMovies()
 void Business::buildCustomers()
 {
     ifstream customerInfile("data4customers.txt");
-	if (!customerInfile) 
+	if (!customerInfile)
     {
 		cout << "customer data file could not be opened." << endl;
 		return;
@@ -84,7 +84,7 @@ void Business::buildCustomers()
         delete customerData[i];
     }
     //table.display();
-    
+
     customerInfile.close();
 }
 
@@ -104,7 +104,7 @@ void Business::processTrans() //NOT FINISHED
     while(!commandInFile.eof())
     {
         commandInFile.get(command);
-	    
+
 	if(command == 'X')
         {
             commandInFile.ignore(10, '\n');
@@ -115,7 +115,7 @@ void Business::processTrans() //NOT FINISHED
         {
             //CREATE COMMAND FROM COMMAND FACTORY METHOD HERE!!!
             transPtr = createCommand.createTransaction(command);
-            //PERFORMS THAT COMMAND'S TRANSACTION 
+            //PERFORMS THAT COMMAND'S TRANSACTION
             transPtr->display(comedyTree, classicTree, dramaTree, table, genre, custID, fullTitle);
             commandInFile.ignore(10, '\n');
             continue;
@@ -146,7 +146,7 @@ void Business::processTrans() //NOT FINISHED
 
         switch(genre)
         {
-            case 'F' : 
+            case 'F' :
             getline(commandInFile, movieName, ',');
             commandInFile.get();
             getline(commandInFile, year, '\n');
@@ -154,7 +154,7 @@ void Business::processTrans() //NOT FINISHED
             fullTitle = movieName + " " + year;
             break;
 
-            case 'D' : 
+            case 'D' :
             getline(commandInFile, temp, ' ');
             getline(commandInFile, temp2, ',');
             commandInFile.get();
@@ -163,7 +163,7 @@ void Business::processTrans() //NOT FINISHED
             fullTitle = temp + " " + temp2 + " " + movieName;
             break;
 
-            case 'C' : 
+            case 'C' :
             commandInFile >> month;
             commandInFile.get();
             commandInFile >> year;
@@ -174,7 +174,7 @@ void Business::processTrans() //NOT FINISHED
             fullTitle = year + " " + month + " " + temp + " " + temp2;
             break;
 
-            case 'Z' : 
+            case 'Z' :
             commandInFile.ignore(100, '\n');
             default : break;
         }
