@@ -6,8 +6,7 @@
 #include "nodedata.h"
 using namespace std;
 
-class Comedy : public Movie
-{
+class Comedy : public Movie {
     public:
         Comedy();
         ~Comedy();
