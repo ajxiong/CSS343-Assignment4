@@ -92,7 +92,9 @@ class Hashtable
     // ------------------------------------setSize--------------------------------------------------------
     // Pre-conditions: none
     // Post-conditions: assigns hashtable size from value parameter
-    // Description: method sets hashtable size from value parameter 
+    // Description: method sets hashtable size from value parameter. if vector pointer is NOT nullptr,
+    // then set the new size of vector and copy old contents of vector to newly created vector. otherwise,
+    // create a new vector. 
     // --------------------------------------------------------------------------------------------------- 
     void setSize(const int &size); //end of setSize
     
