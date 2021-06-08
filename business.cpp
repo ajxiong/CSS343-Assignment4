@@ -8,38 +8,37 @@ Business::Business(){}
 
 Business::~Business(){}
 
-void Business::buildMovies(BinTree comedyTree, BinTree dramaTree, BinTree classicTree)
-{
-    char type;
-    NodeData* ptr;
-    bool flagIn;
-
+void Business::buildMovies(BinTree comedyTree, BinTree dramaTree, BinTree classicTree){
     ifstream movieInfile("data4movies.txt");
     if (!movieInfile){
-        cout << "File could not be opened." << endl;
-        return 1;
+        cout << "Movie files cannot be opened." << endl;
+        return;
     }
-
+	
+    NodeData* movieNode;
+    char type;
+    bool ifInsert;
+	
     while(!movieInfile.eof()){
         type = movieInfile.get();
-
-        if(type == 'F'){
-            node = MovieFactory::createComedy(movieInfile)->makeNode();
-            flagIn = comedyTree.insert(node);
-            if(!flagIn)
+        if(type == 'F') {
+            movieNode = MovieFactory::createComedy(movieInfile)->makeNode();
+            ifInsert = comedyTree.insert(movieNode);
+            if(!ifInsert) {
                 delete node;
+	    }
         }
-        else if(type == 'D'){
-            node = MovieFactory::createDrama(movieInfile)->makeNode();
-            flagIn = dramaTree.insert(node);
-            if(!flagIn)
-                delete node;
+        else if(type == 'D') {
+            movieNode = MovieFactory::createDrama(movieInfile)->makeNode();
+            ifInsert = dramaTree.insert(movieNode);
+            if(!ifInsert)
+                delete movieNode;
         }
-        else if(type == 'C'){
-            node = MovieFactory::createClassic(movieInfile)->makeNode();
-            flagIn = classicTree.insert(node);
-            if(!flagIn)
-                delete node;
+        else if(type == 'C') {
+            movieNode = MovieFactory::createClassic(movieInfile)->makeNode();
+            ifInsert = classicTree.insert(movieNode);
+            if(!ifInsert)
+                delete movieNode;
         }
         else {
             cout << "Movie type is invalid" << endl;
