@@ -113,6 +113,12 @@ void Business::processTrans() //NOT FINISHED
     while(!commandInFile.eof())
     {
         commandInFile.get(command);
+	    
+	if(command == 'X')
+        {
+            commandInFile.ignore(10, '\n');
+            continue;
+        }
 
         if(command == 'I')
         {
