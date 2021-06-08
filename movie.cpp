@@ -28,69 +28,47 @@ string Movie::getYear() const {
     return year;
 }
 
+string Movie::getMonth() const {
+    return month;
+}
+
+string Movie::getFirstName() const {
+    return firstName;
+}
+
+string Movie::getLastName() const {
+    return lastName;
+}
+
 int Movie::getStock() const {
     return stock;
 }
 
-bool Movie::setStock(int stockNum) {
-    stock = stockNum;
-    if (stock < 0) {
-        return false;
-    } else {
-        return true;
-    }
-}
 
-bool Movie::setTitle(string titleStr) {
+void Movie::setTitle(string titleStr) {
     title = titleStr;
-    if (title.empty()) {
-        return false;
-    } else {
-        return true;
-    }
 }
 
-bool Movie::setDirector(string directorStr) {
+void Movie::setDirector(string directorStr) {
     director = directorStr;
-    if (director.empty()) {
-        return false;
-    } else {
-        return true;
-    }
 }
 
-bool Movie::setYear(string yearStr) {
+void Movie::setYear(string yearStr) {
     year = yearStr;
-    if (year.empty()) {
-        return false;
-    } else {
-        return true;
-    }
 }
 
-bool Movie::setMonth(string monthStr) {
+void Movie::setMonth(string monthStr) {
     month = monthStr;
-    if (year.empty()) {
-        return false;
-    } else {
-        return true;
-    }
 }
 
-bool Movie::setFirstName(string firstStr) {
+void Movie::setFirstName(string firstStr) {
     first = firstStr;
-    if (first.empty()) {
-        return false;
-    } else {
-        return true;
-    }
 }
 
-bool Movie::setLastName(string lastStr) {
+void Movie::setLastName(string lastStr) {
     last = lastStr;
-    if (last.empty()) {
-        return false;
-    } else {
-        return true;
-    }
+}
+
+void Movie::setStock(int stockNum) {
+    stock = stockNum;
 }
