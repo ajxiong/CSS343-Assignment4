@@ -13,7 +13,7 @@ class Comedy : public Movie
         ~Comedy();
 
         NodeData* makeNode();
-        string sortingAttribute() const;
+
 };
 
 #endif

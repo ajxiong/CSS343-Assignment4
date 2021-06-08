@@ -13,7 +13,6 @@ class Drama : public Movie
         Drama();
         ~Drama();
         NodeData* makeNode();
-        string sortingAttribute() const;
 };
 
 #endif

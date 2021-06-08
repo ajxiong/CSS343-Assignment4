@@ -10,14 +10,14 @@ class NodeData {
     friend ostream & operator<<(ostream &, const NodeData &);
 
     private:
-        Movie data;
+        string data;
         int nodeStock;
 
     public:
         NodeData();
         ~NodeData();
-        NodeData(const Movie &);
-        NodeData(const Movie&, int);
+        NodeData(const string &);
+        NodeData(const string&, int);
         NodeData(const NodeData &);
         NodeData& operator=(const NodeData &);
 

@@ -9,6 +9,9 @@ class MovieFactory {
     public:
         MovieFactory();
         ~MovieFactory();
-        static Movie* createMovie(const char type, ifstream& infile);
+        //static Movie* createMovie(const char type, ifstream& infile) { };
+        static Comedy* createComedy(ifstream& infile);
+        static Drama* createDrama(ifstream& infile);
+        static Classic* createClassic(ifstream& infile);
 };
 #endif

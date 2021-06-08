@@ -8,9 +8,5 @@ Drama::~Drama() { }
 
 
 NodeData* Drama::makeNode() {
-    return new NodeData(this, this->stock);;
-}
-
-string Drama::sortingAttribute() const {
-    return "B" + this->director + " " + this->title;
+    return new NodeData(director + " " + this->title, this->stock);;
 }

@@ -14,7 +14,7 @@ class Classic : public Movie
         ~Classic();
 
         NodeData* makeNode();
-        string sortingAttribute() const;
+
 };
 
 #endif

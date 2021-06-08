@@ -14,6 +14,15 @@ public:
         //Destructor
         ~Movie();
 
+        //Displays
+        //void display();
+
+        //Overriding operators
+        // bool operator==(const Movie &) const;
+        // bool operator!=(const Movie &) const;
+        // bool operator<(const Movie &) const;
+        // bool operator>(const Movie &) const;
+
         //Getter
         int getStock() const;
         string getTitle() const;
@@ -29,8 +38,7 @@ public:
         bool setFirstName(string);
         bool setLastName(string);
 
-        //virtual NodeData* makeNode() { };
-        //virtual string sortingAttribute() const { };
+        //virtual NodeData* makeNode();
 
     protected:
         string title;

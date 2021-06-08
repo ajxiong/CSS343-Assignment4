@@ -6,13 +6,13 @@
 #include "hashtable.h"
 using namespace std;
 
-class Inventory 
+class Inventory : public Transaction
 {
     private:
     public:
         Inventory();
         ~Inventory();
-        void perform(BinTree&);
+        void display(BinTree&, BinTree&, BinTree&, int, string, char, Hashtable&);
 };
 
 #endif
