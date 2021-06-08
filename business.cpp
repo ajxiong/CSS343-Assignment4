@@ -8,7 +8,7 @@ Business::Business(){}
 
 Business::~Business(){}
 
-void Business::buildMovies(BinTree comedyTree, BinTree dramaTree, BinTree classicTree){
+void Business::buildMovies(){
     ifstream movieInfile("data4movies.txt");
     if (!movieInfile){
         cout << "Movie files cannot be opened." << endl;
