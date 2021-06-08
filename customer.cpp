@@ -17,11 +17,6 @@ Customer::Customer(string first, string last, int custID)
 
 Customer::~Customer(){}
 
-void Customer::setCustomer()
-{
-
-}
-
 void Customer::display()
 {
     if (movieHistory.size() == 0) {
@@ -33,7 +28,7 @@ void Customer::display()
 
 void Customer::addTrans(string command, string movieTitle)
 {
-    movieHistory.push_back(command + movieTitle);
+    movieHistory.push_back(command + " " + movieTitle);
     if(command == "Returned")
         movieDue.pop_back();
     else if(command == "Borrowed")
@@ -58,6 +53,22 @@ string Customer::getFirstName() const
 string Customer::getLastName() const
 {
     return lastName;
+}
+
+bool Customer::checkReturn(const string& name)
+{
+    for(int i = 0; i < movieDue.size(); i++)
+    {
+        if(movieDue[i] == name)
+        {
+            string temp = movieDue.back();
+            movieDue.pop_back();
+            movieDue.push_back(movieDue[i]);
+            movieDue[i] = temp;
+            return true;
+        }
+    }
+    return false;
 }
 
 Customer& Customer::operator=(const Customer &other)
