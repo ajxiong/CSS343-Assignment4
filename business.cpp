@@ -1,12 +1,42 @@
+// ------------------------------------------------ business.cpp -------------------------------------------------------
+// Programmer Name Course Section Number 
+// Alex Xiong CSS343 section B
+// Creation Date 
+// 6/1/21
+// Date of Last Modification 
+// 6/8/21
+// --------------------------------------------------------------------------------------------------------------------
+// Purpose - a brief statement of the program's function 
+// purpose of business.h file is to contain the method implementation from the Business class. 
+// -------------------------------------------------------------------------------------------------------------------- 
+// Notes on specifications, special algorithms, and assumptions. 
+// each method takes a .txt file and reads in data from that .txt file. 
+// --------------------------------------------------------------------------------------------------------------------
+
 #include "business.h"
 #include <iostream>
 using namespace std;
 
+// ------------------------------------Business--------------------------------------------------------
+// Pre-conditions: none
+// Post-conditions: none
+// Description: default constructor included as a pre-cautionary measure
+// --------------------------------------------------------------------------------------------------- 
+Business::Business(){} //end of Business
 
-Business::Business(){}
+// ------------------------------------~Business--------------------------------------------------------
+// Pre-conditions: none
+// Post-conditions: none
+// Description: default destructor included as a pre-cautionary measure
+// --------------------------------------------------------------------------------------------------- 
+Business::~Business(){} //end of ~Business
 
-Business::~Business(){}
-
+// ------------------------------------buildMovies--------------------------------------------------
+// Pre-conditions: none
+// Post-conditions: assigns each movie genre type to its respective genre binary search tree. 
+// Description: buildMovies reads in movie data and assigns each movie to a tree based on genre 
+// type. method also takes in any data error reading. 
+// --------------------------------------------------------------------------------------------------- 
 void Business::buildMovies()
 {
     ifstream movieInfile("data4movies.txt");
@@ -50,8 +80,14 @@ void Business::buildMovies()
     cout << endl << "There are " << invalidCount << " invalid codes in the data file" << endl;
     cout << endl;
     movieInfile.close();
-}
+} //end of buildMovies
 
+// ------------------------------------buildCustomers--------------------------------------------------
+// Pre-conditions: none
+// Post-conditions: assigns customer information to hash table object. 
+// Description: buildCustomers takes in customer information and inserts them as NodeData into
+// the hash table object. 
+// --------------------------------------------------------------------------------------------------- 
 void Business::buildCustomers()
 {
     ifstream customerInfile("data4customers.txt");
@@ -86,8 +122,15 @@ void Business::buildCustomers()
     //table.display();
 
     customerInfile.close();
-}
+} //end of buildCustomers
 
+// ------------------------------------processTrans--------------------------------------------------
+// Pre-conditions: none
+// Post-conditions: modifies movie trees and customer history based on transaction commands and 
+// other information
+// Description: processTrans takes in transaction commands and other information to modify movie
+// trees and customer history. method also takes in any data error reading. 
+// --------------------------------------------------------------------------------------------------- 
 void Business::processTrans()
 {
     ifstream commandInFile("data4commands.txt");
@@ -189,4 +232,4 @@ void Business::processTrans()
             transPtr->display(comedyTree, classicTree, dramaTree, table, genre, custID, fullTitle);
         }
     }
-}
+} //end of processTrans
