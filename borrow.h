@@ -28,14 +28,14 @@ class Borrow : public Transaction
     // Post-conditions: none
     // Description: default constructor included as a pre-cautionary measure
     // --------------------------------------------------------------------------------------------------- 
-    Borrow();
+    Borrow();// end of Borrow
     
     // ------------------------------------~Borrow--------------------------------------------------------
     // Pre-conditions: none
     // Post-conditions: none
     // Description: default destructor included as a pre-cautionary measure
     // --------------------------------------------------------------------------------------------------- 
-    ~Borrow();
+    ~Borrow();// end of ~Borrow
     
     // ------------------------------------display--------------------------------------------------------
     // Pre-conditions: Movie trees and customer hash tables data must be read from .txt files first 
