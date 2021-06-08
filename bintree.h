@@ -7,7 +7,7 @@
 
 using namespace std;
 
-class BinTree {				// you add class/method comments and assumptions
+class BinTree {				
     friend ostream &operator<< (ostream &os, const BinTree &bst);
 
     public:
