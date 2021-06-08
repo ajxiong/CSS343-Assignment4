@@ -8,7 +8,7 @@ class History : public Transaction
     public:
     History();
     ~History();
-    void display(BinTree&, BinTree&, BinTree&, int, string, char, Hashtable&);
+    void display(BinTree&, BinTree&, BinTree&, Hashtable&, char, int, string);
 };
 
 #endif
