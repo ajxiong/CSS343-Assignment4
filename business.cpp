@@ -7,7 +7,7 @@
 // 6/8/21
 // --------------------------------------------------------------------------------------------------------------------
 // Purpose - a brief statement of the program's function 
-// purpose of business.h file is to contain the method implementation from the Business class. 
+// purpose of business.cpp file is to contain the method implementation from the Business class. 
 // -------------------------------------------------------------------------------------------------------------------- 
 // Notes on specifications, special algorithms, and assumptions. 
 // each method takes a .txt file and reads in data from that .txt file. 
