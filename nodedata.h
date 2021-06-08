@@ -19,11 +19,11 @@ class NodeData {
         NodeData(const string &);
         NodeData(const string&, int);
         NodeData(const NodeData &);
-        NodeData& operator=(const NodeData &);
 
         int getStock();
         void setStock(int);
 
+        NodeData& operator=(const NodeData &);
         bool operator==(const NodeData &) const;
         bool operator!=(const NodeData &) const;
         bool operator<(const NodeData &) const;

@@ -1,9 +1,17 @@
 #include "nodedata.h"
 
+ostream& operator<<(ostream& output, const NodeData& nd2) {
+	output << nd2.data << " ___ " << nd2.nodeStock << " movies left." << endl;
+	return output;
+}
+
 NodeData::NodeData()
 {
+    data = " ";
     nodeStock = 0;
 }
+
+NodeData::~NodeData() { }
 
 NodeData::NodeData(const string& string, int s) {
     data = string;
@@ -20,14 +28,12 @@ NodeData::NodeData(const string& string) {
     nodeStock = 0;
 }
 
-NodeData::~NodeData() { }
+int NodeData::getStock() {
+    return nodeStock;
+}
 
 void NodeData::setStock(int newStock) {
     nodeStock = newStock;
-}
-
-int NodeData::getStock() {
-    return nodeStock;
 }
 
 NodeData& NodeData::operator=(const NodeData& nd2) {
@@ -60,9 +66,4 @@ bool NodeData::operator<=(const NodeData& nd2) const {
 
 bool NodeData::operator>=(const NodeData& nd2) const {
 	return (this->data) >= nd2.data;
-}
-
-ostream& operator<<(ostream& output, const NodeData& nd2) {
-	output << nd2.data << " ___ " << nd2.nodeStock << " movies left." << endl;
-	return output;
 }
