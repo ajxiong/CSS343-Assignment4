@@ -19,7 +19,7 @@ class Business
     public:
     Business();
     ~Business();
-    void buildMovies(comedyTree, dramaTree, classicTree);
+    void buildMovies();
     void buildCustomers();
     void processTrans();
 };
