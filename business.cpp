@@ -142,15 +142,8 @@ void Business::processTrans()
     char command, dvd, genre;
     int custID;
     string movieName, fullTitle, temp, temp2, year, month;
-    while(!commandInFile.eof())
+    while(commandInFile.get(command))
     {
-	bool ifIn = commandInFile.get(command);
-
-        if (!ifIn)
-        {
-            commandInFile.ignore(100,'\n');
-            continue;
-        } else {
             if(command == 'X') {
             commandInFile.ignore(10, '\n');
             continue;
@@ -164,6 +157,7 @@ void Business::processTrans()
             commandInFile.ignore(10, '\n');
             continue;
             }
+	    
             commandInFile.get();
             commandInFile >> custID;
 
@@ -220,18 +214,17 @@ void Business::processTrans()
 
                 case 'Z' :
                 commandInFile.ignore(100, '\n');
-                default : break;
-            }
-            if(command == 'B')
-            {
-                transPtr = createCommand.createTransaction(command);
+		default : break;
+	     }
+	if(command == 'B')
+	{
+		transPtr = createCommand.createTransaction(command);
                 transPtr->display(comedyTree, classicTree, dramaTree, table, genre, custID, fullTitle);
-            }
-            else if(command == 'R')
-            {
+	}
+	else if(command == 'R')
+	{
                 transPtr = createCommand.createTransaction(command);
-                transPtr->display(comedyTree, classicTree, dramaTree, table, genre, custID, fullTitle);
-            }
-        }
+		transPtr->display(comedyTree, classicTree, dramaTree, table, genre, custID, fullTitle);
+	}
     }
 } //end of processTrans
