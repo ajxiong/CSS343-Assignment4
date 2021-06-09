@@ -22,22 +22,24 @@
 using namespace std;
 
 class NodeData {
-    friend ostream & operator<<(ostream &, const NodeData &);
+    friend ostream & operator<<(ostream &, const NodeData &); //display
 
     private:
         string data;
         int nodeStock;
 
     public:
-        NodeData();
-        ~NodeData();
-        NodeData(const string &);
-        NodeData(const string&, int);
-        NodeData(const NodeData &);
-
+        NodeData(); //constructor
+        ~NodeData(); //destructor
+        NodeData(const string &); //constructor with 1 parameter
+        NodeData(const string&, int); //constructor with 2 parameter
+        NodeData(const NodeData &); // copy constructor
+        
+        //getter and setter
         int getStock();
         void setStock(int);
-
+        
+        //overloading operator
         NodeData& operator=(const NodeData &);
         bool operator==(const NodeData &) const;
         bool operator!=(const NodeData &) const;
