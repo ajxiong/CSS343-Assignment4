@@ -1,3 +1,17 @@
+// ------------------------------------------------ movie.h -------------------------------------------------------
+// Programmer Name Course Section Number 
+// Phuong Phan CSS343 section B
+// Creation Date 
+// 6/1/21
+// Date of Last Modification 
+// 6/8/21
+// --------------------------------------------------------------------------------------------------------------------
+// Purpose - a brief statement of the program's function 
+// purpose of movie.h file is to contain the Movie class, its methods, encapsulation, and data fields. 
+// -------------------------------------------------------------------------------------------------------------------- 
+// Notes on specifications, special algorithms, and assumptions. 
+// to keep track movies, we use binary search tree. 
+// --------------------------------------------------------------------------------------------------------------------
 #ifndef MOVIE_H
 #define MOVIE_H
 #include <iostream>
