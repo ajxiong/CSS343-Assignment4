@@ -1,6 +1,6 @@
 // ------------------------------------------------ business.cpp -------------------------------------------------------
 // Programmer Name Course Section Number 
-// Alex Xiong CSS343 section B
+// Alex Xiong - Phuong Phan CSS343 section B
 // Creation Date 
 // 6/1/21
 // Date of Last Modification 
