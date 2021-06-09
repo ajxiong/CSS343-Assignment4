@@ -162,7 +162,7 @@ void Business::processTrans()
             //CREATE COMMAND FROM COMMAND FACTORY METHOD HERE!!!
             transPtr = createCommand.createTransaction(command);
             //PERFORMS THAT COMMAND'S TRANSACTION
-            transPtr->display(comedyTree, classicTree, dramaTree, table, genre, custID, fullTitle);
+            transPtr->display(comedyTree, dramaTree, classicTree, table, genre, custID, fullTitle);
             commandInFile.ignore(10, '\n');
             continue;
             }
