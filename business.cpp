@@ -145,6 +145,7 @@ void Business::processTrans()
     while(commandInFile.get(command))
     {
             if(command == 'X') {
+	    cout << "error, " << command << ", is not a valid command" << endl;
             commandInFile.ignore(10, '\n');
             continue;
             }
@@ -213,6 +214,7 @@ void Business::processTrans()
                 break;
 
                 case 'Z' :
+		cout << "error, " << genre << ", is not a movie genre" << endl;
                 commandInFile.ignore(100, '\n');
 		default : break;
 	     }
