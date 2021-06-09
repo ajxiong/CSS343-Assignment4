@@ -37,43 +37,93 @@ Movie::~Movie() {
 
 }
 
-
+// ----------------------------------------getTittle--------------------------------------------------
+// Pre-conditions: none
+// Post-conditions: none
+// Description: returns movie's tittle
+// ---------------------------------------------------------------------------------------------------
 string Movie::getTitle() const{
     return title;
 }
 
+// ----------------------------------------getDirector------------------------------------------------
+// Pre-conditions: none
+// Post-conditions: none
+// Description: returns movie's director
+// ---------------------------------------------------------------------------------------------------
 string Movie::getDirector() const {
     return director;
 }
 
+
+// ----------------------------------------getYear----------------------------------------------------
+// Pre-conditions: none
+// Post-conditions: none
+// Description: returns movie's year
+// ---------------------------------------------------------------------------------------------------
 string Movie::getYear() const {
     return year;
 }
 
+// ----------------------------------------getStock---------------------------------------------------
+// Pre-conditions: none
+// Post-conditions: none
+// Description: returns movie's stock
+// ---------------------------------------------------------------------------------------------------
 int Movie::getStock() const {
     return stock;
 }
 
+// ----------------------------------------setStock---------------------------------------------------
+// Pre-conditions: parameter is valid
+// Post-conditions: store the parameter value
+// Description: store the parameter value
+// ---------------------------------------------------------------------------------------------------
 void Movie::setStock(int stockNum) {
     stock = stockNum;
 }
 
+// ----------------------------------------setTittle--------------------------------------------------
+// Pre-conditions: parameter is valid
+// Post-conditions: store the parameter value
+// Description: store the parameter value
+// ---------------------------------------------------------------------------------------------------
 void Movie::setTitle(string titleStr) {
     title = titleStr;
 }
 
+// ----------------------------------------setDirector------------------------------------------------
+// Pre-conditions: parameter is valid
+// Post-conditions: store the parameter value
+// Description: store the parameter value
+// ---------------------------------------------------------------------------------------------------
 void Movie::setDirector(string directorStr) {
     director = directorStr;
 }
 
+// ----------------------------------------setYear----------------------------------------------------
+// Pre-conditions: parameter is valid
+// Post-conditions: store the parameter value
+// Description: store the parameter value
+// ---------------------------------------------------------------------------------------------------
 void Movie::setYear(string yearStr) {
     year = yearStr;
 }
 
+// ----------------------------------------setReleaseDate---------------------------------------------
+// Pre-conditions: parameter is valid
+// Post-conditions: store the parameter value
+// Description: store the parameter value
+// ---------------------------------------------------------------------------------------------------
 void Movie::setReleaseDate(string releaseDateStr) {
     releaseDate = releaseDateStr;
 }
 
+// ----------------------------------------setMajorActor----------------------------------------------
+// Pre-conditions: parameter is valid
+// Post-conditions: store the parameter value
+// Description: store the parameter value
+// ---------------------------------------------------------------------------------------------------
 void Movie::setMajorActor(string majorActorStr) {
     majorActor = majorActorStr;
 }
