@@ -15,9 +15,11 @@
 // --------------------------------------------------------------------------------------------------------------------
 #include "movie.h"
 
-// ------------------------------------constructor-----------------------------------------------
-// Description: sets year, director and title to default
-// -------------------------------------------------------------------------------------------------------------
+// ------------------------------------ Movie --------------------------------------------------------
+// Pre-conditions: none
+// Post-conditions: assigns default values to movie data fields
+// Description: default constructor initializes default values to class variables
+// --------------------------------------------------------------------------------------------------- 
 Movie::Movie()
 {
     year = "";
@@ -26,9 +28,15 @@ Movie::Movie()
     stock = 0;
 }
 
+// ---------------------------------------~Movie-------------------------------------------------------
+// Pre-conditions: none
+// Post-conditions: none
+// Description: default destructor included as a pre-cautionary measure
+// ---------------------------------------------------------------------------------------------------- 
 Movie::~Movie() {
 
 }
+
 
 string Movie::getTitle() const{
     return title;
