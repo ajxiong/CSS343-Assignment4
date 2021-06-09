@@ -106,8 +106,6 @@ void Business::buildCustomers()
         customerInfile.get();
         getline(customerInfile, firstName, ' ');
         getline(customerInfile, lastName, '\n');
-        //cout << custID << " " << firstName << " " << lastName << endl;
-        //might need to delete every new Customer object created here?
         customerData.push_back(new Customer(firstName, lastName, custID));
         customerInfile.peek();
     }
