@@ -1,16 +1,24 @@
-// ------------------------------------------------ business.cpp -------------------------------------------------------
+// ------------------------------------------------ bintree.cpp -------------------------------------------------------
 // Programmer Name Course Section Number 
-// Alex Xiong - Phuong Phan CSS343 section B
+// Phuong Phan CSS343 section B
 // Creation Date 
 // 6/1/21
 // Date of Last Modification 
 // 6/8/21
 // --------------------------------------------------------------------------------------------------------------------
 // Purpose - a brief statement of the program's function 
-// purpose of bintree.cpp file is to contain the method implementation from the BinTree class. 
+// purpose of bintree.cpp file is to contain the BinTree class methods implementation. 
 // -------------------------------------------------------------------------------------------------------------------- 
 // Notes on specifications, special algorithms, and assumptions. 
-// each method build and handle the functions of binary search tree
+// to build and keep track the movie, we use a binary search tree. 
+// instructions for bst insertion are as follows:
+/*
+   With each type of movie, we build a different tree.
+   To store the data in the tree, the items should be arranged as follows:
+-	comedy movies (‘F’) sorted by Title, then Year it released 
+-	dramas (‘D’) are sorted by Director, then Title 
+-	classics (‘C’) are sorted by Release date, then Major actor
+*/
 // --------------------------------------------------------------------------------------------------------------------
 #include <string>
 #include <iostream>
@@ -18,33 +26,74 @@
 
 using namespace std;
 
+//------------------------------------------ostream------------------------------------------
+//Description: Displays data from the BSTree in order.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: The parameters that are passed in are an existing object.
+//Post-condition: Print out the tree
+//-------------------------------------------------------------------------------------------
 ostream &operator<< (ostream &os, const BinTree &bst) {
     bst.inorderHelper(bst.root);
     os << endl;
     return os;
 }
 
+//------------------------------------------BinTree------------------------------------------
+//Description: Default Constructor that creates an empty tree.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: None
+//Post-condition: Creates an empty tree
+//-------------------------------------------------------------------------------------------
 BinTree::BinTree() {
     this->root = nullptr;
 }
 
+//-------------------------------------Copy Constructor--------------------------------------
+//Description: Copy Constructor that copies another tree with this one.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: The parameter that is passed in is an existing object.
+//Post-condition: Performs a deep copy of the other tree to this tree.
+//-------------------------------------------------------------------------------------------
 BinTree::BinTree(const BinTree &b2) {
     this->root = nullptr;
     *this = b2;
 }
 
+//Description: Destroys the tree.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: None
+//Post-condition: Destroys all nodes in the tree and the tree.
+//-------------------------------------------------------------------------------------------
 BinTree::~BinTree() {
     this->makeEmpty();
 }
 
+//------------------------------------------isEmpty------------------------------------------
+//Description: Checks if the tree is empty
+//-------------------------------------------------------------------------------------------
+//Pre-condition: None
+//Post-condition: Returns true if the tree is empty, false if not.
+//-------------------------------------------------------------------------------------------
 bool BinTree::isEmpty() const{
     return this->root == nullptr;
 }
 
+//----------------------------------------makeEmpty------------------------------------------
+//Description: Makes the tree empty.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: None
+//Post-condition: Destroys all nodes in the tree and the tree. Helper for the destructor
+//-------------------------------------------------------------------------------------------
 void BinTree::makeEmpty() {
     makeEmpty(root);
 }
 
+//--------------------------------makeEmpty(with 1 parameter)--------------------------------
+//Description: Makes the tree empty with begining node.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: None
+//Post-condition: Destroys all nodes in the tree and the tree.
+//-------------------------------------------------------------------------------------------
 void BinTree::makeEmpty(Node* &current)
 {
     if (current != nullptr) {   // post order traversal
@@ -61,6 +110,13 @@ void BinTree::makeEmpty(Node* &current)
     }
 }
 
+//----------------------------------------opersator=-----------------------------------------
+//Description: Basically a Copy Constructor that copies another tree
+// with this one. Except that it uses the assignment operator
+//-------------------------------------------------------------------------------------------
+//Pre-condition: The parameter that is passed in is an existing object.
+//Post-condition: Performs a deep copy of the other tree to this tree.
+//-------------------------------------------------------------------------------------------
 BinTree& BinTree::operator= (const BinTree &b2) {
     if (*this == b2) { // check if both trees are the same
         return *this;
@@ -70,6 +126,13 @@ BinTree& BinTree::operator= (const BinTree &b2) {
     return *this;   // returns lTree when its the same as rTree
 }
 
+//-------------------------------------assignmentHelper=-------------------------------------
+//Description: Basically a Copy Constructor that copies another tree
+// with this one. Except that it uses the assignment operator
+//-------------------------------------------------------------------------------------------
+//Pre-condition: The both parameter that is passed in is an existing object. Node and BinTree
+//Post-condition: Performs a deep copy of the other tree to this tree.
+//-------------------------------------------------------------------------------------------
 void BinTree::assignmentHelper(Node* b2, Node* &thisTree)
 {
     if (b2 != nullptr) {// preorder traverse right tree
@@ -168,6 +231,14 @@ BinTree::Node* BinTree::arrayToTreeHelper(NodeData* arrayNode[], int first, int 
     return node;
 }
 
+//----------------------------------------equalHelper-----------------------------------------
+//Description: C Checks if one tree is the same as another. This is a helper
+// for both the == and the !=. For the == operator, anytime
+// where the tree differs in anyway, returns false.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: The parameter that is passed in is an existing object.
+//Post-condition: Returns true if the two trees are the same. False otherwise.
+//-------------------------------------------------------------------------------------------
 bool BinTree::equalHelper(Node* b1Node, Node* b2Node) const {
     if (b1Node == nullptr && b2Node == nullptr) {
         return true;
@@ -184,6 +255,12 @@ bool BinTree::equalHelper(Node* b1Node, Node* b2Node) const {
     }
 }
 
+//---------------------------------------insertHelper----------------------------------------
+//Description:  Insert the node into the tree. Helper function inserts to the tree recursively.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: There is an existing object for Node and Nodedata.
+//Post-condition: Returns true if insert is successful. False if not.
+//-------------------------------------------------------------------------------------------
 bool BinTree::insertHelper(Node* &current, NodeData* insertData) {
     if (current == NULL)    // insert new node here
     {
@@ -208,6 +285,12 @@ bool BinTree::insertHelper(Node* &current, NodeData* insertData) {
     return true;    // node inserted
 }
 
+//--------------------------------------retrieveHelper---------------------------------------
+//Description: Helper function for the retrieve function.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: There is an existing object for Node and Nodedata and this BinTree object exists
+//Post-condition: Returns true if you found the data. False if not.
+//-------------------------------------------------------------------------------------------
 bool BinTree::retrieveHelper(Node* current, const NodeData &nodeData, NodeData* &otherNodeData) const {
     if (current == nullptr) {    // NodeData is not found
         otherNodeData = nullptr;   // return pointer set to NULL
@@ -224,10 +307,23 @@ bool BinTree::retrieveHelper(Node* current, const NodeData &nodeData, NodeData* 
     }
 }
 
+//----------------------------------------getHeight------------------------------------------
+//Description: Gets the height of the node that is being passed in.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: There is an existing node object.
+//Post-condition: Returns the where in the tree the node is located in.
+//-------------------------------------------------------------------------------------------
 int BinTree::getHeight(const NodeData &nodeData) const {
     return getHeightHelper(nodeData, this->root);
 }
 
+//-------------------------------------getHeightHelper---------------------------------------
+//Description:  Gets the height of the node that is being passed in.
+// This method solves this problem recursively.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: There is an existing node object and this BinTree object is existing.
+//Post-condition: Returns the where in the tree the node is located.
+//-------------------------------------------------------------------------------------------
 int BinTree::getHeightHelper(const NodeData &nodeData, Node* current) const {
     if (current == nullptr)
     {
@@ -246,6 +342,13 @@ int BinTree::getHeightHelper(const NodeData &nodeData, Node* current) const {
     }
 }
 
+//-------------------------------------getHeightHelper---------------------------------------
+//Description: Gets the height of the node that is being passed in.
+// This method solves this problem recursively.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: There is an existing node object and this BinTree object is existing.
+//Post-condition: Returns the where in the tree the node is located.
+//-------------------------------------------------------------------------------------------
 int BinTree::recursiveGetHeightHelper(Node* current) const {
     if (current == nullptr) {
         return 0;   // have reached a leaf node
@@ -255,6 +358,12 @@ int BinTree::recursiveGetHeightHelper(Node* current) const {
     }
 }
 
+//-------------------------------------inorderHelper---------------------------------------
+//Description: Gets all the nodes in the tree in order.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: There is an existing node object and this BinTree object is existing.
+//Post-condition: Successfully gets the nodes in order.
+//-------------------------------------------------------------------------------------------
 void BinTree::inorderHelper(Node* current) const{
     if (current != nullptr)  // traverse and print data
     {
@@ -263,20 +372,23 @@ void BinTree::inorderHelper(Node* current) const{
         inorderHelper(current->right);
     }
 }
-
-//------------------------- displaySideways ---------------------------------
-// Displays a binary tree as though you are viewing it from the side;
+//------------------------- displaySideways -------------------------------------------------
+//Description: Displays a binary tree as though you are viewing it from the side;
 // hard coded displaying to standard output.
+//-------------------------------------------------------------------------------------------
 // Preconditions: NONE
 // Postconditions: BinTree remains unchanged.
+//-------------------------------------------------------------------------------------------
 void BinTree::displaySideways() const {
 	sideways(root, 0);
 }
 
-//---------------------------- Sideways -------------------------------------
-// Helper method for displaySideways
+//---------------------------- Sideways -----------------------------------------------------
+//Description: Helper method for displaySideways
+//-------------------------------------------------------------------------------------------
 // Preconditions: NONE
 // Postconditions: BinTree remains unchanged.
+//-------------------------------------------------------------------------------------------
 void BinTree::sideways(Node* current, int level) const {
 	if (current != nullptr) {
 		level++;
