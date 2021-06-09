@@ -1,5 +1,5 @@
 
-// ------------------------------------------------ borrow.h -------------------------------------------------------
+// ------------------------------------------------ history.h -------------------------------------------------------
 // Programmer Name Course Section Number 
 // Phuong Phan CSS343 section B
 // Creation Date 
@@ -23,9 +23,9 @@ class History : public Transaction
 {
     private:
     public:
-    History();
-    ~History();
-    void display(BinTree&, BinTree&, BinTree&, Hashtable&, char, int, string);
+    History(); // constructor
+    ~History(); // destructor
+    void display(BinTree&, BinTree&, BinTree&, Hashtable&, char, int, string); // display customer's transactions
 };
 
 #endif
