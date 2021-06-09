@@ -63,7 +63,10 @@ void Borrow::display(BinTree& comedyTree, BinTree& classicTree, BinTree& dramaTr
     if(foundMovie)
         stock = moviePtr->getStock();
     else
+    {
         cout << name << " does not exist in movie store" << endl;
+        return;
+    }
     if(foundCustomer)
     {
         if(stock > 0)
