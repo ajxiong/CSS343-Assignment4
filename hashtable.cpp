@@ -88,6 +88,7 @@ bool Hashtable::find(const int &custID, Customer* &custPtr) const
             int hashPosition2 = (hashPosition + (counter * (r - (custID % r)))) % hashTableSize;
             if(hashTable[hashPosition2].getID() == custID)
             {
+                custPtr = &hashTable[hashPosition2];
                 found = true;
                 return found;
             }
