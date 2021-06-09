@@ -146,7 +146,7 @@ void Business::processTrans()
     string movieName, fullTitle, temp, temp2, year, month;
     while(!commandInFile.eof())
     {
-bool ifIn = commandInFile.get(command);
+	bool ifIn = commandInFile.get(command);
 
         if (!ifIn)
         {
