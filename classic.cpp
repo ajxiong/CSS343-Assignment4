@@ -29,7 +29,7 @@ Classic::Classic() { }
 // --------------------------------------------------------------------------------------------------- 
 Classic::~Classic() { }
 
-// ------------------------------------display--------------------------------------------------------
+// ------------------------------------ makeNode --------------------------------------------------------
 // Pre-conditions: Movie trees must be read from .txt files first 
 // Post-conditions: make a Node from stored data in movie class
 // Description: This class helps to build a classic tree.
