@@ -8,7 +8,7 @@
 // 6/8/21
 // --------------------------------------------------------------------------------------------------------------------
 // Purpose - a brief statement of the program's function 
-// purpose of bintree.cpp file is to contain the BinTree class methods implementation. 
+// purpose of bintree.cpp file is to contain the BinTree class, its methods. 
 // -------------------------------------------------------------------------------------------------------------------- 
 // Notes on specifications, special algorithms, and assumptions. 
 // to build and keep track the movie, we use a binary search tree. 
