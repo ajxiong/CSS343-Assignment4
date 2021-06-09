@@ -33,8 +33,7 @@ History::~History(){}
 
 // ------------------------------------display--------------------------------------------------------
 // Pre-conditions: Movie trees and customer hash tables data must be read from .txt files first 
-// Post-conditions: retrieves movie from its respective tree and adds movie and command action to
-// customer history vector, while decreasing that movie's stock.
+// Post-conditions: retrieves customer from its hashtable and display their names/ID and their old transactions.
 // Description: History will be able to print out the transaction history of customers. 
 // --------------------------------------------------------------------------------------------------- 
 void History::display(BinTree& comedyTree, BinTree& dramaTree, BinTree& classicTree, Hashtable& table, char genre, int custID, string name)
