@@ -1,5 +1,5 @@
   
-// ------------------------------------------------ return.h -------------------------------------------------------
+// ------------------------------------------------ return.cpp -------------------------------------------------------
 // Programmer Name Course Section Number 
 // Alex Xiong CSS343 section B
 // Creation Date 
@@ -8,7 +8,7 @@
 // 6/9/21
 // --------------------------------------------------------------------------------------------------------------------
 // Purpose - a brief statement of the program's function 
-// purpose of return.h file is to contain the Return class, its methods, encapsulation, polymorphism, and data fields. 
+// purpose of return.cpp file is to contain the Return class's method implementation. 
 // -------------------------------------------------------------------------------------------------------------------- 
 // Notes on specifications, special algorithms, and assumptions. 
 // display is a inherited, virtual method from the Transaction base class. 
