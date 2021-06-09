@@ -88,28 +88,6 @@ void BinTree::makeEmpty() {
     makeEmpty(root);
 }
 
-//--------------------------------makeEmpty(with 1 parameter)--------------------------------
-//Description: Makes the tree empty with begining node.
-//-------------------------------------------------------------------------------------------
-//Pre-condition: None
-//Post-condition: Destroys all nodes in the tree and the tree.
-//-------------------------------------------------------------------------------------------
-void BinTree::makeEmpty(Node* &current)
-{
-    if (current != nullptr) {   // post order traversal
-        makeEmpty(current->left); // left
-        makeEmpty(current->right);    // right
-
-        if (current->data != nullptr) {
-            delete current->data;   // deletes the data
-            current->data = nullptr;
-        }
-
-        delete current; // sets pointer to NULL
-        current = nullptr;
-    }
-}
-
 //----------------------------------------opersator=-----------------------------------------
 //Description: Basically a Copy Constructor that copies another tree
 // with this one. Except that it uses the assignment operator
@@ -147,6 +125,12 @@ void BinTree::assignmentHelper(Node* b2, Node* &thisTree)
     }
 }
 
+//----------------------------------------operator==-----------------------------------------
+//Description: Checks if one tree is the same as another.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: The parameter that is passed in is an existing object.
+//Post-condition: Returns true if the two trees are the same. False otherwise.
+//-------------------------------------------------------------------------------------------
 bool BinTree::operator== (const BinTree& b2) const{
     if (this->root == nullptr && b2.root == nullptr) {
         return true;
@@ -155,14 +139,34 @@ bool BinTree::operator== (const BinTree& b2) const{
     }
 }
 
+//----------------------------------------operator!=-----------------------------------------
+//Description: Checks if one tree is not the same as another.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: The parameter that is passed in is an existing object.
+//Post-condition: Returns true if the two trees are not the same. False otherwise.
+//-------------------------------------------------------------------------------------------
 bool BinTree::operator!= (const BinTree& b2) const{
     return !(*this == b2);
 }
 
+//------------------------------------------insert-------------------------------------------
+//Description: Insert the node into the tree.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: There is a node object.
+//Post-condition: Returns true if insert is successful. False if not.
+//-------------------------------------------------------------------------------------------
 bool BinTree::insert(NodeData* data) {
     return insertHelper(this->root, data);
 }
 
+
+//-----------------------------------------retrieve------------------------------------------
+//Description: Gets the NodeData* of a given object in the tree and to report
+// whether the object is found.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: There is an existing object for Node and Nodedata.
+//Post-condition: Returns true if you found the data. False if not.
+//-------------------------------------------------------------------------------------------
 bool BinTree::retrieve(const NodeData &nodeData, NodeData* &otherNodeData) const {
     //Uses the helper method to retrieve.
     retrieveHelper(root, nodeData, otherNodeData);
@@ -173,6 +177,12 @@ bool BinTree::retrieve(const NodeData &nodeData, NodeData* &otherNodeData) const
     return false;   // NodeData not in tree
 }
 
+//---------------------------------------bstreeToArray---------------------------------------
+//Description: Puts all the nodes in the tree inside the array in order.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: There is an existing array that carries NodeData
+//Post-condition: Successfully puts all the contents in the tree to an array in order.
+//-------------------------------------------------------------------------------------------
 void BinTree::bstreeToArray(NodeData* arrayNode[]) {
     //This is foe the current size of the array.
     int index = 0;
@@ -185,6 +195,14 @@ void BinTree::bstreeToArray(NodeData* arrayNode[]) {
     this->makeEmpty();
 }
 
+//------------------------------------bstreeToArrayHelper------------------------------------
+//Description: Puts all the nodes in the tree inside the array in order.
+// This is the helper for bstreetoArray.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: There is an existing node, array and index is
+//a real number.
+//Post-condition: Successfully puts all the contents in the tree to a array.
+//-------------------------------------------------------------------------------------------
 void BinTree::bstreeToArrayHelper(NodeData* arrayNode[], int &index, Node* current) {
     if(current->left != nullptr) {
         bstreeToArrayHelper(arrayNode, index, current->left);
@@ -200,6 +218,13 @@ void BinTree::bstreeToArrayHelper(NodeData* arrayNode[], int &index, Node* curre
     }
 }
 
+//--------------------------------------arrayToBSTree---------------------------------------
+//Description: Puts all the elements in the array inside of bstree, starting
+// with (left + right) / 2.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: There is an existing array passed in
+//Post-condition: Successfully puts all the contents in the array into the tree.
+//-------------------------------------------------------------------------------------------
 void BinTree::arrayToBSTree(NodeData* arrayNode[]) {
     this->makeEmpty();
     int last = 0;
@@ -217,6 +242,35 @@ void BinTree::arrayToBSTree(NodeData* arrayNode[]) {
 
 }
 
+//--------------------------------makeEmpty(with 1 parameter)--------------------------------
+//Description: Makes the tree empty with begining node.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: None
+//Post-condition: Destroys all nodes in the tree and the tree.
+//-------------------------------------------------------------------------------------------
+void BinTree::makeEmpty(Node* &current)
+{
+    if (current != nullptr) {   // post order traversal
+        makeEmpty(current->left); // left
+        makeEmpty(current->right);    // right
+
+        if (current->data != nullptr) {
+            delete current->data;   // deletes the data
+            current->data = nullptr;
+        }
+
+        delete current; // sets pointer to NULL
+        current = nullptr;
+    }
+}
+
+//------------------------------------arrayToBSTreeHelper------------------------------------
+//Description: Puts all the elements in the array inside of bstree, starting
+// with (left + right) / 2. Helper for arrayToBSTree.
+//-------------------------------------------------------------------------------------------
+//Pre-condition: There is an existing array passed in
+//Post-condition: Successfully puts all the contents in the array into the tree.
+//-------------------------------------------------------------------------------------------
 BinTree::Node* BinTree::arrayToTreeHelper(NodeData* arrayNode[], int first, int last) {
     if(first > last)
         return nullptr;
