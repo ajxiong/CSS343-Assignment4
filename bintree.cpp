@@ -1,3 +1,17 @@
+// ------------------------------------------------ business.cpp -------------------------------------------------------
+// Programmer Name Course Section Number 
+// Alex Xiong - Phuong Phan CSS343 section B
+// Creation Date 
+// 6/1/21
+// Date of Last Modification 
+// 6/8/21
+// --------------------------------------------------------------------------------------------------------------------
+// Purpose - a brief statement of the program's function 
+// purpose of bintree.cpp file is to contain the method implementation from the BinTree class. 
+// -------------------------------------------------------------------------------------------------------------------- 
+// Notes on specifications, special algorithms, and assumptions. 
+// each method build and handle the functions of binary search tree
+// --------------------------------------------------------------------------------------------------------------------
 #include <string>
 #include <iostream>
 #include "bintree.h"
