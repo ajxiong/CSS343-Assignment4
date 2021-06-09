@@ -1,6 +1,6 @@
 // ------------------------------------------------ history.cpp -------------------------------------------------------
 // Programmer Name Course Section Number 
-// Alex Xiong CSS343 section B
+// Phuong Phan CSS343 section B
 // Creation Date 
 // 6/7/21
 // Date of Last Modification 
