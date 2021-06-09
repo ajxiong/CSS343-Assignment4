@@ -146,90 +146,94 @@ void Business::processTrans()
     string movieName, fullTitle, temp, temp2, year, month;
     while(!commandInFile.eof())
     {
-        commandInFile.get(command);
+bool ifIn = commandInFile.get(command);
 
-	if(command == 'X')
+        if (!ifIn)
         {
+            commandInFile.ignore(100,'\n');
+            continue;
+        } else {
+            if(command == 'X') {
             commandInFile.ignore(10, '\n');
             continue;
-        }
+            }
 
-        if(command == 'I')
-        {
+            if(command == 'I') {
             //CREATE COMMAND FROM COMMAND FACTORY METHOD HERE!!!
             transPtr = createCommand.createTransaction(command);
             //PERFORMS THAT COMMAND'S TRANSACTION
             transPtr->display(comedyTree, classicTree, dramaTree, table, genre, custID, fullTitle);
             commandInFile.ignore(10, '\n');
             continue;
-        }
-        commandInFile.get();
-        commandInFile >> custID;
-
-        if(command == 'H')
-        {
-            transPtr = createCommand.createTransaction(command);
-            transPtr->display(comedyTree, classicTree, dramaTree, table, genre, custID, fullTitle);
-            commandInFile.ignore(10, '\n');
-            continue;
-        }
-
-        commandInFile.get();
-        commandInFile.get(dvd);
-
-        if(dvd != 'D')
-        {
-            commandInFile.ignore(100, '\n');
-            continue;
-        }
-
-        commandInFile.get();
-        commandInFile.get(genre);
-        commandInFile.get();
-
-        switch(genre)
-        {
-            case 'F' :
-            getline(commandInFile, movieName, ',');
+            }
             commandInFile.get();
-            getline(commandInFile, year, '\n');
-            year.erase(4);
-            fullTitle = movieName + " " + year;
-            break;
+            commandInFile >> custID;
 
-            case 'D' :
-            getline(commandInFile, temp, ' ');
-            getline(commandInFile, temp2, ',');
-            commandInFile.get();
-            getline(commandInFile, movieName, ',');
-            commandInFile.ignore(10, '\n');
-            fullTitle = temp + " " + temp2 + " " + movieName;
-            break;
+            if(command == 'H')
+            {
+                transPtr = createCommand.createTransaction(command);
+                transPtr->display(comedyTree, classicTree, dramaTree, table, genre, custID, fullTitle);
+                commandInFile.ignore(10, '\n');
+                continue;
+            }
 
-            case 'C' :
-            commandInFile >> month;
             commandInFile.get();
-            commandInFile >> year;
-            commandInFile.get();
-            getline(commandInFile, temp, ' ');
-            getline(commandInFile, temp2, '\n');
-            temp2.erase(temp2.size() - 1);
-            fullTitle = year + " " + month + " " + temp + " " + temp2;
-            break;
+            commandInFile.get(dvd);
 
-            case 'Z' :
-            commandInFile.ignore(100, '\n');
-            default : break;
-        }
-        if(command == 'B')
-        {
-            transPtr = createCommand.createTransaction(command);
-            transPtr->display(comedyTree, classicTree, dramaTree, table, genre, custID, fullTitle);
-        }
-        else if(command == 'R')
-        {
-            transPtr = createCommand.createTransaction(command);
-            transPtr->display(comedyTree, classicTree, dramaTree, table, genre, custID, fullTitle);
+            if(dvd != 'D')
+            {
+                commandInFile.ignore(100, '\n');
+                continue;
+            }
+
+            commandInFile.get();
+            commandInFile.get(genre);
+            commandInFile.get();
+
+            switch(genre)
+            {
+                case 'F' :
+                getline(commandInFile, movieName, ',');
+                commandInFile.get();
+                getline(commandInFile, year, '\n');
+                year.erase(4);
+                fullTitle = movieName + " " + year;
+                break;
+
+                case 'D' :
+                getline(commandInFile, temp, ' ');
+                getline(commandInFile, temp2, ',');
+                commandInFile.get();
+                getline(commandInFile, movieName, ',');
+                commandInFile.ignore(10, '\n');
+                fullTitle = temp + " " + temp2 + " " + movieName;
+                break;
+
+                case 'C' :
+                commandInFile >> month;
+                commandInFile.get();
+                commandInFile >> year;
+                commandInFile.get();
+                getline(commandInFile, temp, ' ');
+                getline(commandInFile, temp2, '\n');
+                temp2.erase(temp2.size() - 1);
+                fullTitle = year + " " + month + " " + temp + " " + temp2;
+                break;
+
+                case 'Z' :
+                commandInFile.ignore(100, '\n');
+                default : break;
+            }
+            if(command == 'B')
+            {
+                transPtr = createCommand.createTransaction(command);
+                transPtr->display(comedyTree, classicTree, dramaTree, table, genre, custID, fullTitle);
+            }
+            else if(command == 'R')
+            {
+                transPtr = createCommand.createTransaction(command);
+                transPtr->display(comedyTree, classicTree, dramaTree, table, genre, custID, fullTitle);
+            }
         }
     }
 } //end of processTrans
