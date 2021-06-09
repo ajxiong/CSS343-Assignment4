@@ -39,4 +39,4 @@ Transaction* TransactionFactoryMethod::createTransaction(const char &command)
         return new Borrow();
     else
         return nullptr;
-}
+} //enf of createTransaction
