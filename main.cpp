@@ -29,7 +29,6 @@ int main() //main driver function
 {
     Business b1;
 
-    //comment for now
     cout << "Read the movie data" << endl;
     b1.buildMovies();
 
