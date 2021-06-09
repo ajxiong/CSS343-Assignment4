@@ -12,6 +12,7 @@
 // Notes on specifications, special algorithms, and assumptions. 
 // to keep track movies, we use binary search tree. 
 // --------------------------------------------------------------------------------------------------------------------
+
 #ifndef MOVIE_H
 #define MOVIE_H
 #include <iostream>
