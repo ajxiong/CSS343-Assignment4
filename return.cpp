@@ -1,9 +1,41 @@
+  
+// ------------------------------------------------ return.h -------------------------------------------------------
+// Programmer Name Course Section Number 
+// Alex Xiong CSS343 section B
+// Creation Date 
+// 6/7/21
+// Date of Last Modification 
+// 6/9/21
+// --------------------------------------------------------------------------------------------------------------------
+// Purpose - a brief statement of the program's function 
+// purpose of return.h file is to contain the Return class, its methods, encapsulation, polymorphism, and data fields. 
+// -------------------------------------------------------------------------------------------------------------------- 
+// Notes on specifications, special algorithms, and assumptions. 
+// display is a inherited, virtual method from the Transaction base class. 
+// --------------------------------------------------------------------------------------------------------------------
+
 #include "return.h"
 
-Return::Return() {}
+// ------------------------------------Return--------------------------------------------------------
+// Pre-conditions: none
+// Post-conditions: none
+// Description: default constructor included as a pre-cautionary measure
+// --------------------------------------------------------------------------------------------------- 
+Return::Return() {} //end of Return
 
-Return::~Return() {}
+// ------------------------------------~Return--------------------------------------------------------
+// Pre-conditions: none
+// Post-conditions: none
+// Description: default destructor included as a pre-cautionary measure
+// --------------------------------------------------------------------------------------------------- 
+Return::~Return() {} //end of ~Return
 
+// ------------------------------------display--------------------------------------------------------
+// Pre-conditions: none
+// Post-conditions: none
+// Description: retrieves movie from its respective tree, decreases its stock, and adds movie and 
+// transaction command to customer history.  
+// --------------------------------------------------------------------------------------------------- 
 void Return::display(BinTree& comedyTree, BinTree& classicTree, BinTree& dramaTree, Hashtable& table, char genre, int custID, string name)
 {
     Customer* customerPtr = nullptr;
@@ -43,4 +75,4 @@ void Return::display(BinTree& comedyTree, BinTree& classicTree, BinTree& dramaTr
     }
     else
         cout << "Customer ID: " << custID << " does not exist" << endl;
-}
+} //end of display
