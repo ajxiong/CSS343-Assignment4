@@ -1,3 +1,18 @@
+// ------------------------------------------------ nodedata.h -------------------------------------------------------
+// Programmer Name Course Section Number 
+// Phuong Phan CSS343 section B
+// Creation Date 
+// 6/1/21
+// Date of Last Modification 
+// 6/8/21
+// --------------------------------------------------------------------------------------------------------------------
+// Purpose - a brief statement of the program's function 
+// purpose of nodedata.cpp file is to contain the NodeData class, its methods. 
+// -------------------------------------------------------------------------------------------------------------------- 
+// Notes on specifications, special algorithms, and assumptions. 
+// Node has string and stock to contain the information of movies and we use binary search tree to handle nodes of movies.
+// --------------------------------------------------------------------------------------------------------------------
+
 #ifndef NODEDATA_H
 #define NODEDATA_H
 #include <string>
