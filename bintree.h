@@ -1,3 +1,26 @@
+
+// ------------------------------------------------ bintree.cpp -------------------------------------------------------
+// Programmer Name Course Section Number 
+// Phuong Phan CSS343 section B
+// Creation Date 
+// 6/1/21
+// Date of Last Modification 
+// 6/8/21
+// --------------------------------------------------------------------------------------------------------------------
+// Purpose - a brief statement of the program's function 
+// purpose of bintree.cpp file is to contain the BinTree class methods implementation. 
+// -------------------------------------------------------------------------------------------------------------------- 
+// Notes on specifications, special algorithms, and assumptions. 
+// to build and keep track the movie, we use a binary search tree. 
+// instructions for bst insertion are as follows:
+/*
+   With each type of movie, we build a different tree.
+   To store the data in the tree, the items should be arranged as follows:
+-	comedy movies (‘F’) sorted by Title, then Year it released 
+-	dramas (‘D’) are sorted by Director, then Title 
+-	classics (‘C’) are sorted by Release date, then Major actor
+*/
+// --------------------------------------------------------------------------------------------------------------------
 #ifndef BINTREE_H
 #define BINTREE_H
 
