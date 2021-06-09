@@ -29,7 +29,7 @@ Inventory::Inventory() {}
 // ---------------------------------------------------------------------------------------------------
 Inventory::~Inventory() {}
 
-// ------------------------------------display--------------------------------------------------------
+// ------------------------------------ display --------------------------------------------------------
 // Pre-conditions: Movie trees data must be read from .txt files first 
 // Post-conditions: retrieves movies from its tree and display the information of each trees and each movies.
 // Description: Inventory will be able to print out the list of movies following by types. 
