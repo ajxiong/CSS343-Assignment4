@@ -92,10 +92,7 @@ bool Hashtable::find(const int &custID, Customer* &custPtr) const
                 return found;
             }
             else if(hashTable[hashPosition2].getID() == 0)
-            {
-                cout << "Customer ID: " << custID << " not found." << endl;
                 break;
-            }
             counter++;
         }
     }
